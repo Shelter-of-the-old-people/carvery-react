@@ -8,26 +8,22 @@ function App() {
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div class="gnb">
+        <div class="logo-frame"><div class="logo"><a href="/home">Carvery</a></div></div>
+        <div class="menu-frame">
+          <div class="menu"><div class="menu-text"><a href="">날씨</a></div></div>
+          <div class="menu"><div class="menu-text"><a href="">세차장</a></div></div>
+          <div class="menu"><div class="menu-text"><a href="">소식</a></div></div>
+          <div class="menu"><div class="menu-text"><a href="">세차용품</a></div></div>
+          <div class="menu"><div class="menu-text"><a href="">지도</a></div></div>
+        </div>
+        <div class="search-bar-frame">
+          <form class="gnb-search-bar-frame" action="" method="get">
+            <object type="image/svg+xml" data="/icons/search.svg"></object>
+            <input class="search-input" type="text"/>
+          </form>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

@@ -1,4 +1,6 @@
-:root {
+@import url(./Basic.css);
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -11,7 +13,84 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
+
+:root {
+  --background-sunny: #A2DEEA;
+  --background-cloudy: #AACFD7;
+  --background-rainy: #A9BACD;
+  --background-windy: #B4B6D4;
+  --background-snow: #C1D2E8;
+  --background-overcast: #99B7CD;
+
+  --gnb-searchbar-background : rgba(216, 216, 216, 0.5);
+  
+  --ffffff-30 : rgba(255, 255, 255, 0.3);
+  --ffffff-50 : rgba(255, 255, 255, 0.5);
+  --ffffff-80 : rgba(255, 255, 255, 0.8);
+
+  --low-gray-30 : rgba(119, 119, 119, 0.3);
+
+  --gray-7 : rgba(119, 119, 119, 1);
+  --gray-7-50 : rgba(119, 119, 119, 0.5);
+  --gray-5 : rgba(85, 85, 85, 1);
+  --gray-5-50 : rgba(85, 85, 85, 0.5);
+  --gray-4 : rgba(68, 68, 68, 1);
+
+  --star : #FCC418;
+  --black : #000000;
+
+  --font-family: "Pretendard", Helvetica;
+  --letter-spacing: 0px;
+  --line-height: 139.9999976158142%;
+  --font-style: normal;
+
+  /* 900 */
+  --logo-font-weight: 900;
+  --logo-font-size: 32px;
+
+  /* 700 */
+  --font-weight-7: 700;
+  /* 카테고리-대분류 */
+  --font-size-36: 36px;
+  /* 세차장 거리 */
+  --font-size-32: 32px;
+  /* 제품 가격 */
+  --font-size-16: 16px;
+  /* 시설 정보 */
+  --font-size-12: 12px;
+
+  /* 600 */
+  --font-weight-6: 600;
+  /* GNB 메뉴 */
+  --font-size-20: 20px;
+  /* 카드 상세 내용, 홈 현위치*/
+  --font-size-14: 14px;
+  /* 홈 세차 추천 */
+  --font-size-32: 32px;
+  /* 홈 오늘 기온 */
+  --font-size-40: 40px;
+  /* 세차장 정보 */
+  --font-size-16: 16px;
+
+  /* 500 */
+  --font-weight-5: 500;
+  /* 카테고리-소분류 */
+  --font-size-32: 32px;
+  /* 세차장 업체명 */
+  --font-size-24: 24px;
+  /* 카드 업체명 */
+  --font-size-20: 20px;
+  /* 카드 거리, 홈 날짜 */
+  --font-size-16: 16px;
+  /* 카드 주소 */
+  --font-size-14: 14px;
+  
+  /* 400 */
+  --font-weight-4: 400;
+  /* 홈 요일별별 기온 */
+  --font-size-12: 12px;
+} */
 
 a {
   font-weight: 500;

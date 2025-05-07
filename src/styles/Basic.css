@@ -1,0 +1,343 @@
+body{
+    background-color: var(--background-sunny);
+}
+
+.image{
+    background-color: var(--gray-7);
+}
+
+.gnb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100vw;
+    align-self: stretch;
+    flex: 0 0 auto;
+    margin: 30px 40px;
+    padding: 0px 70px;
+    box-sizing: border-box;
+    border-radius: 60px;
+    background-color: var(--ffffff-50);
+}
+
+.gnb .logo-frame {
+    align-items: end;
+}
+
+.gnb .logo {
+    width: fit-content;
+    font-family: var(--font-family);
+    font-weight: var(--logo-font-weight);
+    font-size: var(--logo-font-size);
+    line-height: var(--line-height);
+    color: #000000;
+    text-align: center;
+}
+
+.gnb .menu-frame {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 10px;
+    padding: 10px 0px;
+    flex: 0 0 auto;
+}
+
+.gnb .menu {
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+    background-color: var(--low-gray-30);
+    border-radius: 60px;
+}
+
+.gnb .menu:hover {
+    background-color: #FFFFFF;
+}
+
+.gnb .menu-text {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-6);
+    font-size: var(--logo-font-size);
+    line-height: var(--line-height);
+    font-size: var(--font-size-16);
+    width: fit-content;
+    color: var(--black);
+}
+
+.gnb .search-bar-frame {
+    display: flex;
+    align-items: center;
+    width: 760px;
+    flex: 0 0 auto;
+}
+
+.gnb .search-input {
+    width: 100%;
+    align-items: center;
+    align-self: stretch;
+    flex-grow: 1;
+    background: transparent;
+    border:none;
+    font-size: var(--font-size-24);
+}
+
+.gnb .gnb-search-bar-frame {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 20px 0px;
+    border-radius: 1px;
+    background-color: var(--gnb-searchbar-background);
+    border-radius: 60px;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    padding: 40px;
+    height: 100vh;
+}
+
+.home .weather-frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 966px;
+    height: 500px;
+}
+
+.weather-frame .weather-Icon{
+    width: 100%;
+}
+
+.weather-frame .weather-Icon .w-Icon{
+    float: right;
+}
+
+.weather-frame .weather-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+.weather-frame .today-frame {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+.weather-frame .recommend-frame {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+}
+
+.weather-frame .ment {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-32);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--black);
+}
+
+
+.weather-frame .info-text {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--black);
+}
+
+.divier {
+    width: 2px;
+    height: 80%;
+    background-color: var(--gray-7-50);
+    border-radius: 10px;
+}
+
+.weather-frame .information-frame {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+}
+
+.weather-frame .temp {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-40);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--black);
+}
+
+.weather-frame .location-frame {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 10px;
+}
+
+.weather-frame .weekly-frame {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 20px;
+    width: fit-content;
+    background-color: var(--ffffff-30);
+    border-radius: 10px;
+}
+
+.weather-frame .weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: 6px;
+}
+
+.weekly-frame .temp {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-4);
+    font-size: var(--font-size-14);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--black);
+}
+
+.home .one-line-card-frame{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+
+.one-line-card-frame .title{
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-32);
+    line-height: var(--line-height);
+    width: fit-content;
+    padding-left: 100px;
+    color: var(--gray-4);
+}
+
+.one-line-card-frame .card-frame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+    width: fit-content;
+}
+
+.card-frame .nav-button{
+    width: 48px;
+    height: 48px;
+}
+
+.one-line-card-frame .card-list-frame {
+    display: flex;
+    align-items: center;
+    width: 1198px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.one-line-card-frame .card-list {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    gap: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.card-list .card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    width: 374px;
+    height: 470px;
+    background-color: var(--ffffff-30);
+    border-radius: 20px;
+}
+
+.card .info-head {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 4px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.info-head .name {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-20);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--black);
+}
+
+.info-head .location-frame {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.info-head .distance {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-16);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--gray-5);
+}
+
+.one-line-card-frame .info-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.info-list .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.card .title{
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-14);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--gray-5);
+    padding: 0;
+}
+
+.card .image {
+    width: 100%;
+    flex: 1;
+}
