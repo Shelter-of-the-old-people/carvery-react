@@ -11,7 +11,7 @@ const WeeklyList = ([weatherList]) => {
     }, []);
 
     return (
-         <div class="weekly-frame">
+         <div className="weekly-frame">
             {weathers.map((item, index) => (
                 <Card
                   key={index}

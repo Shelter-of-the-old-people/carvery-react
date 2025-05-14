@@ -3,20 +3,20 @@ import Gnb from '../../components/Gnb';
 import FacilityList from '../../components/FacilityList';
 import Weather from '../../components/Weather';
 import '../styles/styleguide.css';
-import '../styles/Home.css'
+import '../styles/Home.css';
 
 const Home = () => {
   return (
-    <div class="home">
+    <div className="home">
         <Weather />
-        <div class="one-line-card-frame">
-            <p class="title">세차장</p>
-            <div class="card-frame">
-                <object class="nav-button" type="image/svg+xml" data="/icons/left_button.svg"></object>
-                <div class="card-list-frame">
+        <div className="one-line-card-frame">
+            <p className="title">세차장</p>
+            <div className="card-frame">
+                <object className="nav-button" type="image/svg+xml" data="/icons/left_button.svg"></object>
+                <div className="card-list-frame">
                     <FacilityList />
                 </div>
-                <object class="nav-button" type="image/svg+xml" data="/icons/right_button.svg"></object>
+                <object className="nav-button" type="image/svg+xml" data="/icons/right_button.svg"></object>
             </div>
         </div>
     </div>

@@ -15,21 +15,21 @@ const Weather = ({WToday, WWeeks, date, location}) => {
 
 
     return  (
-        <div class="weather-frame">
-            <div class="weather-Icon">
-                <object class="w-Icon" type="image/svg+xml" data={iconPath}></object>
+        <div className="weather-frame">
+            <div className="weather-Icon">
+                <object className="w-Icon" type="image/svg+xml" data={iconPath}></object>
             </div>
-            <div class="weather-board">
-                <div class="today-frame">
-                    <div class="recommend-frame">
-                        <p class="ment">세차하기 좋은 날입니다.</p>
-                        <p class="info">{date}</p>
+            <div className="weather-board">
+                <div className="today-frame">
+                    <div className="recommend-frame">
+                        <p className="ment">세차하기 좋은 날입니다.</p>
+                        <p className="info">{date}</p>
                     </div>
-                    <div class="divier"></div>
-                    <div class="information-frame">
-                        <p class="temp">{todayWeather.temp}</p>
-                        <div class="location-frame">
-                            <p class="info-text">{location}</p>
+                    <div className="divier"></div>
+                    <div className="information-frame">
+                        <p className="temp">{todayWeather.temp}</p>
+                        <div className="location-frame">
+                            <p className="info-text">{location}</p>
                             <object type="image/svg+xml" data="/icons/location.svg"></object>
                         </div>
                     </div>

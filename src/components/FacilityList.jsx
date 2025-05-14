@@ -38,7 +38,7 @@ const FacilityList = () => {
     }, []);
 
     return (
-            <div class="card-list">
+            <div className="card-list">
               {facilities.map((item, index) => (
                 <Card
                   key={index}
