@@ -1,0 +1,110 @@
+
+.weather-frame{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 966px;
+    height: 500px;
+}
+
+.weather-frame .weather-Icon{
+    width: 100%;
+}
+
+.weather-frame .weather-Icon .w-Icon{
+    float: right;
+}
+
+.weather-frame .weather-board {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 10px;
+}
+
+.weather-frame .today-frame {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+}
+
+.weather-frame .recommend-frame {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+}
+
+.weather-frame .ment {
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-32);
+    width: fit-content;
+    color: var(--black);
+}
+
+
+.weather-frame .info-text {
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-16);
+    width: fit-content;
+    color: var(--black);
+}
+
+.divier {
+    width: 2px;
+    height: 80%;
+    background-color: var(--gray-7-50);
+    border-radius: 10px;
+}
+
+.weather-frame .information-frame {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+}
+
+.weather-frame .temp {
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-40);
+    width: fit-content;
+    color: var(--black);
+}
+
+.weather-frame .location-frame {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    gap: 10px;
+}
+
+.weather-frame .weekly-frame {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 20px;
+    width: fit-content;
+    background-color: var(--ffffff-30);
+    border-radius: 10px;
+}
+
+.weather-frame .weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    gap: 6px;
+}
+
+.weekly-frame .temp {
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-4);
+    font-size: var(--font-size-14);
+    width: fit-content;
+    color: var(--black);
+}
