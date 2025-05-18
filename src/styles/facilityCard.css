@@ -1,0 +1,119 @@
+
+.home .one-line-card-frame{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+}
+
+.one-line-card-frame .title{
+    font-family: 'Pretendard-Regular';
+    width: fit-content;
+    padding-left: 100px;
+    color: var(--gray-4);
+}
+
+.card-frame {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+    width: fit-content;
+}
+
+.card-frame .nav-button{
+    width: 48px;
+    height: 48px;
+}
+
+.card-list-frame {
+    display: flex;
+    align-items: center;
+    width: 1198px;
+    height: 500px;
+    overflow: hidden;
+}
+
+.card-list {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+    gap: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.card-list .card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+    width: 374px;
+    height: 470px;
+    background-color: var(--ffffff-30);
+    border-radius: 20px;
+}
+
+.card .info-head {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 4px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.info-head .name {
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-20);
+    width: fit-content;
+    color: var(--black);
+}
+
+.info-head .location-frame {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.info-head .distance {
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-16);
+    width: fit-content;
+    color: var(--gray-5);
+}
+
+.one-line-card-frame .info-list {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.info-list .info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.card .title{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-14);
+    width: fit-content;
+    color: var(--gray-5);
+    padding: 0;
+}
+
+.card .image {
+    width: 100%;
+    flex: 1;
+}

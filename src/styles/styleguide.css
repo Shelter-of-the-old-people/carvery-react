@@ -40,11 +40,6 @@
   --star : #FCC418;
   --black : #000000;
 
-  --font-family: "Pretendard", Helvetica;
-  --letter-spacing: 0px;
-  --line-height: 139.9999976158142%;
-  --font-style: normal;
-
   /* 900 */
   --logo-font-weight: 900;
   --logo-font-size: 32px;
@@ -90,7 +85,14 @@
   --font-weight-4: 400;
   /* 홈 요일별별 기온 */
   --font-size-12: 12px;
-} */
+}
+
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-style: normal;
+    letter-spacing: 0px;
+}
 
 a {
   font-weight: 500;
