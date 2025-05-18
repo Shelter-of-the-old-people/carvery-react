@@ -1,0 +1,41 @@
+import React,{useEffect, useState} from 'react';
+import InfoList from './FInfoList';
+import '../styles/styleguide.css';
+import '../styles/facilityCard.css';
+import FInfoList from './FInfoList';
+
+const FacilityCard = ({ title,image, dist, address, info , call }) => { 
+    const [infos, setInfos] = useState([]);
+    
+    useEffect(() => {
+        setInfos(info);
+    }, []);
+
+    return  (
+    <div className="card">
+        <div className="info-head">
+            <p className="name">{title}</p>
+            <div className="divier"></div>
+            <div className="location-frame">
+                <object className="location_small" type="image/svg+xml" data="../assets/location_small.svg"></object>
+                <p className="distance">{dist}</p>
+            </div>
+        </div>
+        <img src={image} alt={title} className="image" />
+        <div className="content-frame">
+            <p className="title">주소</p>
+            <p className="content">{address}</p>
+        </div>
+        <div className="content-frame">
+            <p className="title">시설 정보</p>
+            <FInfoList info={infos}/>
+        </div>
+        <div className="content-frame">
+            <p className="title">전화번호</p>
+            <p className="content">{call}</p>
+        </div>
+    </div>
+    );
+};
+
+export default FacilityCard;
