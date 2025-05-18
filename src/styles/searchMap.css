@@ -1,10 +1,22 @@
-.title {
-    font-size: --font-size-36;
+.search-map-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.map-card {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
+.search-map-title {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.map-box {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  background-color: #666;
+  color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  box-sizing: border-box;
 }

@@ -1,19 +1,15 @@
-import styles from './styles/searchMap.css';
+import './styles/searchMap.css';
 
-const SearchMap = ({ image }) => {
+function SearchMap() {
   return (
-    <div className="map-card">
-      <img src={image} alt={title} className="card-image" />
-      <div className="card-content">
-        <div className="brand">{brand}</div>
-        <div className="title">{title}</div>
-        <div className="price">{price.toLocaleString()}원</div>
-        <div className="rating">
-          <span className="star">⭐</span> {rating} <span className="review">(리뷰 {reviewCount})</span>
-        </div>
+    <div className="search-map-container">
+      <h2 className="search-map-title">지도로 찾기</h2>
+      <div className="map-box">
+        지도
       </div>
     </div>
   );
-};
+}
+
 
 export default SearchMap;
