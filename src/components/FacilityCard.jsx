@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import React,{useEffect, useState} from 'react';
 import InfoList from './FInfoList';
 import '../styles/styleguide.css';
 import '../styles/facilityCard.css';
 import FInfoList from './FInfoList';
+=======
+import React,{use, useState} from 'react';
+import InfoList from './FInfoList';
+import '../styles/styleguide.css';
+import '../styles/facilityCard.css';
+>>>>>>> main
 
 const FacilityCard = ({ title,image, dist, address, info , call }) => { 
     const [infos, setInfos] = useState([]);
@@ -28,7 +35,16 @@ const FacilityCard = ({ title,image, dist, address, info , call }) => {
         </div>
         <div className="content-frame">
             <p className="title">시설 정보</p>
+<<<<<<< HEAD
             <FInfoList info={infos}/>
+=======
+            {infos.map((item, index) => (
+                <InfoList
+                    key={index}
+                    info={item.title}
+                />
+            ))}
+>>>>>>> main
         </div>
         <div className="content-frame">
             <p className="title">전화번호</p>

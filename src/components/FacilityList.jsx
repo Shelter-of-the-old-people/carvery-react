@@ -6,7 +6,11 @@ import '../styles/facilityCard.css';
 const mockProducts = [
     {
       productImage: 'https://test-it.co.kr/face93.png',
+<<<<<<< HEAD
       productName: '호림이네',
+=======
+      title: '호림이네',
+>>>>>>> main
       dist: '3.0',
       address: '구미시 옥계남로 76-23',
       infos: [
@@ -17,7 +21,11 @@ const mockProducts = [
     },
     {
       productImage: 'https://test-it.co.kr/face93.png',
+<<<<<<< HEAD
       productName: '민호네',
+=======
+      title: '민호네',
+>>>>>>> main
       dist: '4.0',
       address: '구미시 양포동',
       infos: [
@@ -55,4 +63,7 @@ const FacilityList = () => {
 };
 
 export default FacilityList;
+<<<<<<< HEAD
 
+=======
+>>>>>>> main

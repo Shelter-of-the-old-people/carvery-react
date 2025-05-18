@@ -92,7 +92,10 @@
     src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
     font-style: normal;
     letter-spacing: 0px;
+<<<<<<< HEAD
     line-height: 139.9999976158142%;
+=======
+>>>>>>> main
 }
 
 a {
