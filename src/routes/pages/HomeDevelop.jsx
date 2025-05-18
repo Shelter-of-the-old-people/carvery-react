@@ -1,15 +1,16 @@
-import React from 'react';
-import Gnb from '../../components/Gnb';
-import FacilityList from '../../components/FacilityList';
+import React, { useState } from 'react';
 import Weather from '../../components/Weather';
-import '../styles/styleguide.css';
-import '../styles/Home.css';
+import '../../styles/styleguide.css';
+import '../../styles/Home.css';
 
-const Home = () => {
+
+
+const HomeDevelop = () => {
+
   return (
     <div className="home">
         <Weather />
-        <div className="one-line-card-frame">
+        {/* <div className="one-line-card-frame">
             <p className="title">세차장</p>
             <div className="card-frame">
                 <object className="nav-button" type="image/svg+xml" data="/icons/left_button.svg"></object>
@@ -18,9 +19,9 @@ const Home = () => {
                 </div>
                 <object className="nav-button" type="image/svg+xml" data="/icons/right_button.svg"></object>
             </div>
-        </div>
+        </div> */}
     </div>
   );
 };
 
-export default Home;
+export default HomeDevelop;

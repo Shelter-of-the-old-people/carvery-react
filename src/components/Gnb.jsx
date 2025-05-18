@@ -1,6 +1,6 @@
 import React,{use, useState} from 'react';
 import '../styles/styleguide.css';
-import '../styles/Gng.css'
+import '../styles/Gnb.css'
 
 const Gnb = ({menuList}) => { 
     // menuList={name: '', targetId:''}

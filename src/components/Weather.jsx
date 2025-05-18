@@ -1,40 +1,57 @@
-import React,{use, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import WeeklyList from './WeeklyList';
 import '../styles/styleguide.css';
+import '../styles/globals.css';
 import '../styles/Weather.css';
 
-const Weather = ({WToday, WWeeks, date, location}) => { 
-    const [todayWeather, setTodayWeather] = useState([]);
-    const [weekWeathers, setWeekWeathers] = useState([]);
-    const iconPath = `../assets/weathers/${todayWeather.type}.svg`;
+const mockWeather =
+    {
+      weatherToday: {type: 'sunny', temp: '24'},
+      weatherWeeks: [
+        {weather: 'sunny', temperature: '1', day: '월요일'},
+        {weather: 'rainy', temperature: '2', day: '화요일'},
+        {weather: 'cloudy', temperature: '3', day: '수요일'},
+        {weather: 'windy', temperature: '4', day: '목요일'},
+        {weather: 'snowy', temperature: '5', day: '금요일'},
+        {weather: 'sunny', temperature: '6', day: '토요일'},
+        {weather: 'cloudy', temperature: '7', day: '일요일'},
+      ],
+      date: '2025년 5월 18일',
+      location: '경상북도 구미시 거의동'
+    };
+
+const Weather = () => { 
+    const [weather, setWeather] = useState([]);
+    const [todayWeather, setTodayWeather] = useState({type: 'null', temp:'0'});
 
     useEffect(() => {
-        setTodayWeather(WToday);
-        setWeekWeathers(WWeeks);
+        setTodayWeather(mockWeather.weatherToday);
+        setWeather(mockWeather);
     }, []);
 
+    const iconPath = `/assets/weathers/${todayWeather?.type}-today.svg`;
 
     return  (
         <div className="weather-frame">
             <div className="weather-Icon">
-                <object className="w-Icon" type="image/svg+xml" data={iconPath}></object>
+                <img className="w-Icon" src={iconPath}></img>
             </div>
             <div className="weather-board">
                 <div className="today-frame">
                     <div className="recommend-frame">
                         <p className="ment">세차하기 좋은 날입니다.</p>
-                        <p className="info">{date}</p>
+                        <p className="info">{weather.date}</p>
                     </div>
                     <div className="divier"></div>
                     <div className="information-frame">
-                        <p className="temp">{todayWeather.temp}</p>
+                        <p className="temp">{todayWeather.temp}°</p>
                         <div className="location-frame">
-                            <p className="info-text">{location}</p>
-                            <object type="image/svg+xml" data="/icons/location.svg"></object>
+                            <p className="info-text">{weather.location}</p>
+                            <img src='/assets/location.svg'></img>
                         </div>
                     </div>
                 </div>
-                <WeeklyList weatherList={weekWeathers}/>
+                <WeeklyList weatherList={weather.weatherWeeks}/>
             </div>
         </div>
     );

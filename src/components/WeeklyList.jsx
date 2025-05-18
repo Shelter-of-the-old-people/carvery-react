@@ -1,18 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Card from './WeeklyWeather';
-import "../styles/styleguide.css";
+import '../styles/styleguide.css';
 import '../styles/Weather.css';
 
-const WeeklyList = ([weatherList]) => {
-    const [weathers, setWeathers] = useState([]);
-
-    useEffect(() => {
-        setWeathers(weatherList);
-    }, []);
+const WeeklyList = ({weatherList = []}) => {
 
     return (
          <div className="weekly-frame">
-            {weathers.map((item, index) => (
+            {weatherList.map((item, index) => (
                 <Card
                   key={index}
                   temp={item.temperature}
