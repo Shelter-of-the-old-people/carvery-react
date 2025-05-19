@@ -42,7 +42,7 @@ const FacilityList = () => {
                 <Card
                   key={index}
                   image={item.productImage}
-                  title={item.productName}
+                  title={item.title}
                   dist={item.dist}
                   address={item.address}
                   info={item.infos}
