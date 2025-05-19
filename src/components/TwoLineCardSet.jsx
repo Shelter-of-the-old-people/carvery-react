@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import FacilityList from './FacilityList';
 
-const OneLineCardSet = ({title}) => { 
+const TwoLineCardSet = ({title}) => { 
     const listRef = useRef(null);
 
   const scrollLeft = () => {
@@ -12,7 +12,7 @@ const OneLineCardSet = ({title}) => {
     listRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
   };
     return  (
-        <div className="one-line-card-frame">
+        <div className="two-line-card-frame">
             <p className="title">{title}</p>
             <div className="card-frame">
                 <button className="nav-button" onClick={scrollLeft}><img src='/assets/left_button.svg'></img></button>
@@ -25,4 +25,4 @@ const OneLineCardSet = ({title}) => {
     );
 };
 
-export default OneLineCardSet;
+export default TwoLineCardSet;
