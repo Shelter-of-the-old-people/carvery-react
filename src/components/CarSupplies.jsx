@@ -7,21 +7,21 @@ const CarSupplies = () => {
         <div className="supplies-frame">
             <p className="title">차량용품</p>
             <div class="product-category-list">
-                <div class="post-category">
-                    <input class="category-radio" type='radio' name='post-category' id='post-all' value='post-all'/>
-                    <label for="post-all">all</label>
+                <div class="product-category">
+                    <input class="category-radio" type='radio' name='product-category' id='product-all' checked/>
+                    <label for="product-all">all</label>
                 </div>
-                <div class="post-category">
-                    <input class="category-radio" type='radio' name='post-category' id='post-fashion' value='post-fashion'/>
-                    <label for="post-fashion">fashion</label>
+                <div class="product-category">
+                    <input class="category-radio" type='radio' name='product-category' id='product-fashion'/>
+                    <label for="product-fashion">fashion</label>
                 </div>
-                <div class="post-category">
-                    <input class="category-radio" type='radio' name='post-category' id='post-mood' value='post-mood'/>
-                    <label for="post-mood">mood</label>
+                <div class="product-category">
+                    <input class="category-radio" type='radio' name='product-category' id='product-mood'/>
+                    <label for="product-mood">mood</label>
                 </div>
-                <div class="post-category">
-                    <input class="category-radio" type='radio' name='post-category' id='post-mood' value='post-mood'/>
-                    <label for="post-mood">story</label>
+                <div class="product-category">
+                    <input class="category-radio" type='radio' name='product-category' id='product-mood'/>
+                    <label for="product-mood">story</label>
                 </div>
             </div>
             <div className="card-frame">

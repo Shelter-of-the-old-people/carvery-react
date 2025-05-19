@@ -32,7 +32,6 @@
     height: fit-content;
 }
 
-
 .home .product-category-list {
     display: inline-flex;
     height: fit-content;
@@ -42,4 +41,24 @@
     padding: 0 0 0 100px;
     position: relative;
     flex: 0 0 auto;
+}
+
+.home .category-radio+label{
+    text-decoration-line : none;
+    color: inherit;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.home .category-radio{
+    display: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.home .category-radio+label:hover, .home .category-radio:checked+label{
+    text-decoration-line : none;
+    color: #000;
+    background-color: rgba(255, 255, 255, 0.3);
 }
