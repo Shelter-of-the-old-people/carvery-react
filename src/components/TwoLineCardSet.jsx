@@ -17,7 +17,7 @@ const TwoLineCardSet = ({title}) => {
             <div className="card-frame">
                 <button className="nav-button" onClick={scrollLeft}><img src='/assets/left_button.svg'></img></button>
                 <div className="card-list-frame">
-                    <FacilityList scrollRef={listRef}/>
+                    <FacilityList scrollRef={listRef} className="two-line-layout"/>
                 </div>
                 <button className="nav-button" onClick={scrollRight}><img src='/assets/right_button.svg'></img></button>
             </div>
