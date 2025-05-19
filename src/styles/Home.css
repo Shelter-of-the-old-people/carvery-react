@@ -1,4 +1,3 @@
-
 .home {
     display: flex;
     flex-direction: column;
@@ -32,13 +31,13 @@
     height: fit-content;
 }
 
-.home .product-category-list {
+.supplies-frame > .product-category-list {
     display: inline-flex;
     height: fit-content;
     align-items: center;
     justify-content: start;
     gap: 20px;
-    padding: 0 0 0 100px;
+    padding: 20px 0 15px 90px;
     position: relative;
     flex: 0 0 auto;
 }
@@ -61,4 +60,14 @@
     text-decoration-line : none;
     color: #000;
     background-color: rgba(255, 255, 255, 0.3);
+}
+
+.supplies-frame > .title {
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-32);
+    line-height: var(--line-height);
+    width: fit-content;
+    color: var(--gray-5);
+    padding: 0 0 0 90px;
 }
