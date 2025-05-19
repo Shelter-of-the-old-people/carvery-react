@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/styleguide.css";
 import '../styles/facilityCard.css'
 
+<<<<<<< HEAD
 const FInfo = ({title}) => {
   const iconPath = `/assets/facilities/${title}.svg`;
 
@@ -16,7 +17,13 @@ const FInfo = ({title}) => {
       }}
     />
   );
-
+=======
+const FInfo = (info) => {
+    var iconPath = `../assets/facilities/${info}.svg`;
+    return (
+        <object class="info-icon" type="image/svg+xml" data={iconPath}></object>
+    );
+>>>>>>> main
 };
 
 export default FInfo;
