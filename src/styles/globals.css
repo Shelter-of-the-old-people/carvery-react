@@ -45,3 +45,9 @@ button {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0);
 }
+
+input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
