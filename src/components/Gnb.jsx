@@ -3,15 +3,19 @@ import React, { useEffect, useState } from 'react';
 const Gnb = ({menuList = []}) => { 
 
     const handleMenuClick = (targetId) => {
+    setTimeout(() => {
         const targetElement = document.getElementById(targetId);
+        console.log(targetElement);
         if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
-    };
+    }, 100); // DOM이 렌더링될 시간을 확보
+};
+
 
     return  (
     <div className="gnb">
-        <div className="logo-frame"><a href='/home'><object className="logo" data="/assets/logo.svg"></object></a></div>
+        <div className="logo-frame"><a href='/home'><img className="logo" src="/assets/logo.svg"></img></a></div>
         <div className="menu-frame">
             {menuList.map((menu, index) => (
                 <div className="menu" key={index}>

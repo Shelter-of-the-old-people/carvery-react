@@ -29,7 +29,7 @@ const Weather = () => {
     const iconPath = `/assets/weathers/${todayWeather?.type}-today.svg`;
 
     return  (
-        <div className="weather-frame">
+        <div className="weather-frame" id="weather">
             <div className="weather-Icon">
                 <img className="w-Icon" src={iconPath}></img>
             </div>

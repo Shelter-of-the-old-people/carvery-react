@@ -8,9 +8,11 @@
 
 .one-line-card-frame .title{
     font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-32);
     width: fit-content;
     padding-left: 100px;
-    color: var(--gray-4);
+    color: var(--black);
 }
 
 .card-frame {

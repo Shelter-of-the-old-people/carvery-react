@@ -12,10 +12,10 @@ import '../../styles/facilityCard.css';
 
 const mockMenus =
   [
-    {title: "날씨", targetId: ""},
-    {title: "세차장", targetId: ""},
-    {title: "정비소", targetId: ""},
-    {title: "차량용품", targetId: ""}
+    {title: "날씨", targetId: "weather"},
+    {title: "세차장", targetId: "carwash"},
+    {title: "정비소", targetId: "setting"},
+    {title: "차량용품", targetId: "supplies"}
   ];
 
 const HomeDevelop = () => {
@@ -23,10 +23,18 @@ const HomeDevelop = () => {
   return (
     <div className="home">
       <Gnb menuList={mockMenus}/>
+      <span  id="weather">
       <Weather />
+      </span>
+      <span  id="carwash">
       <OneLineCardSet title={"세차장"}/>
+      </span>
+      <span  id="setting">
       <OneLineCardSet title={"정비소"}/>
+      </span>
+      <span  id="supplies">
       <CarSupplies/>
+      </span>
     </div>
   );
 };
