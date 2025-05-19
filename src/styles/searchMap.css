@@ -1,11 +1,28 @@
 .search-map-container {
-  max-width: 800px;
+  width: 1000px;
+  max-width: 1000px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .search-map-title {
+  text-align: left;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-left: 80px;
+  font-size: 32px;
+}
+
+.map-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.map {
+  width: 100%;
+  max-width: 600px;
+  height: 300px; /* 필수 */
 }
 
 .map-box {
