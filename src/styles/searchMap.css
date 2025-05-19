@@ -1,7 +1,16 @@
-.search-map-container {
+.map-frame {
+  display: flex;
+  flex-direction: column;
   width: 1200px;
+  gap: 40px;
   margin: 0 auto;
   text-align: center;
+}
+
+.title-frame{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .search-map-title {
@@ -16,12 +25,12 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  align-self: stretch;
 }
 
 .map {
-  width: 100%;
-  max-width: 600px;
-  height: 300px; /* 필수 */
+  width: 80%;
+  height: 400px;
 }
 
 .map-box {
