@@ -6,7 +6,7 @@ import '../styles/facilityCard.css';
 const FInfoList = ({infoList}=[]) => {
 
     return (
-         <div class="info-list">
+         <div className="info-list">
             {infoList.map((item, index) => (
               <Info 
                 key={index} 
