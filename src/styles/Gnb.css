@@ -56,6 +56,8 @@
 
 .gnb .search-bar-frame {
     display: flex;
+    width: fit-content;
+    position: relative;
     align-items: center;
     width: auto;
     flex: 0 0 auto;

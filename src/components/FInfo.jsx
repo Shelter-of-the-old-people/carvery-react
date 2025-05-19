@@ -2,10 +2,10 @@ import React from 'react';
 import "../styles/styleguide.css";
 import '../styles/facilityCard.css'
 
-const FInfo = (info) => {
-    var iconPath = `../assets/facilities/${info}.svg`;
+const FInfo = ({title}) => {
+    const iconPath = `/assets/facilities/${title}.svg`;
     return (
-        <object class="info-icon" type="image/svg+xml" data={iconPath}></object>
+        <img src={iconPath}></img>
     );
 };
 

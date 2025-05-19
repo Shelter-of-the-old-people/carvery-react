@@ -37,7 +37,7 @@ const Weather = () => {
                 <div className="today-frame">
                     <div className="recommend-frame">
                         <p className="ment">세차하기 좋은 날입니다.</p>
-                        <p className="info">{weather.date}</p>
+                        <p className="info">-{weather.date}-</p>
                     </div>
                     <div className="divier"></div>
                     <div className="information-frame">

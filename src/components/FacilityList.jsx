@@ -33,7 +33,6 @@ const FacilityList = () => {
     const [facilities, setFacilities] = useState([]);
 
     useEffect(() => {
-      // 실제 API 사용 전 Mock 데이터로 테스트
       setFacilities(mockProducts);
     }, []);
 

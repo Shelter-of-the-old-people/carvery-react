@@ -3,16 +3,11 @@ import Info from './FInfo';
 import "../styles/styleguide.css";
 import '../styles/facilityCard.css';
 
-const FInfoList = () => {
-    const [infos, setInfos] = useState([]);
-
-    useEffect(() => {
-      setInfos();
-    }, []);
+const FInfoList = ({infoList}=[]) => {
 
     return (
          <div class="info-list">
-            {infos.map((item, index) => (
+            {infoList.map((item, index) => (
               <Info 
                 key={index} 
                 title={item.title}
