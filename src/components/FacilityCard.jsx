@@ -22,17 +22,19 @@ const FacilityCard = ({ title,image, dist, address, info , call }) => {
             </div>
         </div>
         <img src={image} alt={title} className="image" />
-        <div className="content-frame">
-            <p className="title">주소</p>
-            <p className="content">{address}</p>
-        </div>
-        <div className="content-frame">
-            <p className="title">시설 정보</p>
-            <FInfoList info={infos}/>
-        </div>
-        <div className="content-frame">
-            <p className="title">전화번호</p>
-            <p className="content">{call}</p>
+        <div className="info-frame">
+            <div className="content-frame">
+                <p className="title">주소</p>
+                <p className="content">{address}</p>
+            </div>
+            <div className="content-frame">
+                <p className="title">시설 정보</p>
+                <FInfoList info={infos}/>
+            </div>
+            <div className="content-frame">
+                <p className="title">전화번호</p>
+                <p className="content">{call}</p>
+            </div>
         </div>
     </div>
     );

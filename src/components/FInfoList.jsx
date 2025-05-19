@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-
 import FInfo from './FInfo';
 import "../styles/styleguide.css";
 import "../styles/facilityCard.css";

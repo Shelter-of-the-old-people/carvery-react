@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> main
 .home .one-line-card-frame{
     display: flex;
     flex-direction: column;
@@ -57,6 +53,13 @@
     background-color: var(--ffffff-30);
     border-radius: 20px;
 }
+.card .info-frame {
+    flex-direction: row;
+    padding: 3px;
+    gap: 4px;
+    width: fit-content;
+    height: fit-content;
+}
 
 .card .info-head {
     display: flex;
@@ -64,11 +67,7 @@
     flex-direction: row;
     gap: 4px;
     width: fit-content;
-<<<<<<< HEAD
-    height: 24px;
-=======
     height: fit-content;
->>>>>>> main
 }
 
 .info-head .name {
@@ -120,15 +119,9 @@
     padding: 0;
 }
 
-<<<<<<< HEAD
 .card .image{
     width: 100%;
     aspect-ratio: 333/205;
     object-fit: cover;
     display: block;
-=======
-.card .image {
-    width: 100%;
-    flex: 1;
->>>>>>> main
 }
