@@ -1,0 +1,86 @@
+.gnb {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    flex: 0 0 auto;
+    gap: auto;
+    margin: 40px auto;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    background-color: var(--ffffff-50);
+}
+
+.gnb .logo-frame {
+    align-items: end;
+}
+
+.gnb .logo {
+    width: fit-content;
+    text-align: center;
+}
+
+.gnb .menu-frame {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 10px;
+    padding: 10px 0px;
+    flex: 0 0 auto;
+}
+
+.gnb .menu {
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.gnb .menu:hover {
+    background-color: var(--low-gray-30);
+}
+
+.gnb .menu-text {
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    line-height: var(--line-height);
+    font-size: 18px;
+    width: fit-content;
+    color: var(--black);
+}
+
+.gnb .search-bar-frame {
+    display: flex;
+    width: fit-content;
+    position: relative;
+    align-items: center;
+    width: auto;
+    flex: 0 0 auto;
+}
+
+.gnb .search-input {
+    width: 100%;
+    align-items: center;
+    align-self: stretch;
+    flex-grow: 1;
+    background: transparent;
+    border:none;
+    font-size: var(--font-size-24);
+}
+
+.gnb .gnb-search-bar-frame {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 20px 0px;
+    border-radius: 1px;
+    background-color: var(--gnb-searchbar-background);
+    border-radius: 60px;
+}
