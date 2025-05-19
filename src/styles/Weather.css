@@ -52,7 +52,6 @@
     font-size: var(--font-size-16);
     width: fit-content;
     color: var(--black);
-   
 }
 
 .divier {
@@ -80,6 +79,7 @@
 .weather-frame .location-frame {
     display: flex;
     flex-direction: row;
+    align-items: center;
     width: fit-content;
     gap: 10px;
 }

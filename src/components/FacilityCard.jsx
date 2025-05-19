@@ -1,14 +1,9 @@
-import React,{use, useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import InfoList from './FInfoList';
 import '../styles/styleguide.css';
 import '../styles/facilityCard.css';
 
 const FacilityCard = ({ title,image, dist, address, info , call }) => { 
-    const [infos, setInfos] = useState([]);
-    
-    useEffect(() => {
-        setInfos(info);
-    }, []);
 
     return  (
     <div className="card">
@@ -27,12 +22,9 @@ const FacilityCard = ({ title,image, dist, address, info , call }) => {
         </div>
         <div className="content-frame">
             <p className="title">시설 정보</p>
-            {infos.map((item, index) => (
-                <InfoList
-                    key={index}
-                    info={item.title}
+            <InfoList
+                    infoList={info}
                 />
-            ))}
         </div>
         <div className="content-frame">
             <p className="title">전화번호</p>
