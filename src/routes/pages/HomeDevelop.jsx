@@ -32,12 +32,8 @@ const HomeDevelop = () => {
       </span>
       <span  id="setting">
       <OneLineCardSet title={"정비소"}/>
-<<<<<<< HEAD
       </span>
       <span  id="supplies">
-=======
-      <TwoLineCardSet title={"몰라시발"}/>
->>>>>>> main
       <CarSupplies/>
       </span>
     </div>
