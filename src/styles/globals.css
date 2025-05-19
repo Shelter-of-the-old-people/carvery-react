@@ -10,11 +10,10 @@ html{
 }
 
 body{
-    margin:0;
-    padding:0;
-    width:100vw;
-    height:100vh;
-    overflow-x: hidden;
+    margin: 0;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
 }
 
 /* a blue color as a generic focus style */
@@ -44,4 +43,5 @@ input:focus {
 button {
     border: none;
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
 }

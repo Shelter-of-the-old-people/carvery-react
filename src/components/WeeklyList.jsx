@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Card from './WeeklyWeather';
-import '../styles/styleguide.css';
-import '../styles/Weather.css';
 
 const WeeklyList = ({weatherList = []}) => {
 

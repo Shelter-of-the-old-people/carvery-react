@@ -1,15 +1,16 @@
-
 .gnb {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 100vw;
+    width: 100%;
+    max-width: 100%;
     align-self: stretch;
     flex: 0 0 auto;
-    margin: 30px 40px;
-    padding: 0px 70px;
+    gap: auto;
+    margin: 40px auto;
+    padding: 10px 40px;
     box-sizing: border-box;
-    border-radius: 60px;
+    border-radius: 20px;
     background-color: var(--ffffff-50);
 }
 
@@ -34,20 +35,21 @@
 .gnb .menu {
     align-items: center;
     justify-content: center;
-    padding: 10px 30px;
-    background-color: var(--low-gray-30);
-    border-radius: 60px;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 20px;
+    cursor: pointer;
 }
 
 .gnb .menu:hover {
-    background-color: #FFFFFF;
+    background-color: var(--low-gray-30);
 }
 
 .gnb .menu-text {
     font-family: "Pretendard-Regular";
     font-weight: var(--font-weight-6);
     line-height: var(--line-height);
-    font-size: var(--font-size-16);
+    font-size: 18px;
     width: fit-content;
     color: var(--black);
 }
@@ -55,7 +57,7 @@
 .gnb .search-bar-frame {
     display: flex;
     align-items: center;
-    width: 760px;
+    width: auto;
     flex: 0 0 auto;
 }
 
