@@ -1,14 +1,13 @@
 .card {
     width: 300px;
     height: 360px;
-    padding: 23px 20px;
-    background-color: #f4f7fa; /* 밝은 배경으로 변경 */
+    padding: 20px 20px;
+    background-color: rgba(225, 225, 225, 0.3); /* 밝은 배경으로 변경 */
     border-radius: 16px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* 가벼운 그림자 */
   }
   
   .card-image {
