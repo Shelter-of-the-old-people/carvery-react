@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Weather from '../../components/Weather';
 import OneLineCardSet from '../../components/oneLineCardSet';
+import TwoLineCardSet from '../../components/TwoLineCardSet';
 import CarSupplies from '../../components/CarSupplies';
 import Gnb from '../../components/Gnb';
 import '../../styles/styleguide.css';
@@ -26,6 +27,7 @@ const HomeDevelop = () => {
       <Weather />
       <OneLineCardSet title={"세차장"}/>
       <OneLineCardSet title={"정비소"}/>
+      <TwoLineCardSet title={"몰라시발"}/>
       <CarSupplies/>
     </div>
   );

@@ -13,6 +13,55 @@
     color: var(--gray-4);
 }
 
+.two-line-card-frame .title{
+    font-family: 'Pretendard-Regular';
+    font-size: 32px;
+    width: fit-content;
+    padding-left: 80px;
+    margin-bottom: 10px;
+    color: var(--gray-4);
+}
+
+.two-line-card-frame .card-frame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 1296px;
+  height: 1040px;
+  gap: 10px;
+}
+
+
+.card-list.two-line-layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 10px;
+  gap: 10px;
+  width: 1180px;
+  height: 1040px;   
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.card-list.two-line-layout .card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    width: 374px;
+    height: 470px;
+    background-color: var(--ffffff-30);
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+
+.two-line-card-frame .card-frame .card-list-frame {
+    width: 1180px;
+    height: 1040px;
+    overflow-x: hidden; /* 좌우 스크롤 */
+}
+
 .card-frame {
     display: flex;
     flex-direction: row;
