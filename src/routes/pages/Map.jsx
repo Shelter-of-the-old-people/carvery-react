@@ -7,7 +7,9 @@ import '../../styles/searchMap.css';
 import 'leaflet/dist/leaflet.css';
 import Gnb from '../../components/Gnb';
 
-const mockMenus =[];
+const mockMenus =
+  [
+  ];
 
 const Map = () => {
 

@@ -12,11 +12,7 @@ const FacilityCard = ({ title,image, dist, address, info , call }) => {
             <div className="divier"></div>
             <div className="location-frame">
                 <object className="location_small" type="image/svg+xml" data="../assets/location_small.svg"></object>
-<<<<<<< HEAD
-                <p className="distance">{dist}m</p>
-=======
                 <p className="distance">{dist}km</p>
->>>>>>> origin/main
             </div>
         </div>
         <img src={image} alt={title} className="image" />
