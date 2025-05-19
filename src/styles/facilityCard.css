@@ -19,7 +19,7 @@
     align-items: center;
     padding: 10px;
     gap: 20px;
-    width: fit-content;
+    width: 100%;
 }
 
 .card-frame .nav-button{
@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     width: 1198px;
-    height: 500px;
+    height: fit-content;
     overflow: hidden;
 }
 
@@ -40,8 +40,10 @@
     flex-direction: row;
     padding: 10px 20px;
     gap: 20px;
-    width: fit-content;
+    width: max-content;
     height: fit-content;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 .card-list .card {
@@ -53,6 +55,7 @@
     height: 470px;
     background-color: var(--ffffff-30);
     border-radius: 20px;
+    flex-shrink: 0;
 }
 
 .card .info-frame {
@@ -76,6 +79,7 @@
 .card .info-head {
     display: flex;
     align-items: center;
+    justify-items: center;
     flex-direction: row;
     gap: 4px;
     width: fit-content;

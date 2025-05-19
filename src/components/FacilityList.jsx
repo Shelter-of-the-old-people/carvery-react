@@ -25,11 +25,44 @@ const mockProducts = [
         {title: 'toilet'}
       ],
       call: '00000000000',
+    },
+    {
+      productImage: 'https://test-it.co.kr/face93.png',
+      title: '민호네',
+      dist: '4.0',
+      address: '구미시 양포동',
+      infos: [
+        {title: 'hand'},
+        {title: 'toilet'}
+      ],
+      call: '00000000000',
+    },
+    {
+      productImage: 'https://test-it.co.kr/face93.png',
+      title: '민호네',
+      dist: '4.0',
+      address: '구미시 양포동',
+      infos: [
+        {title: 'hand'},
+        {title: 'toilet'}
+      ],
+      call: '00000000000',
+    },
+    {
+      productImage: 'https://test-it.co.kr/face93.png',
+      title: '민호네',
+      dist: '4.0',
+      address: '구미시 양포동',
+      infos: [
+        {title: 'hand'},
+        {title: 'toilet'}
+      ],
+      call: '00000000000',
     }
     // 추가 상품 예시
   ];
 
-const FacilityList = () => {
+const FacilityList = ({ scrollRef }) => {
     const [facilities, setFacilities] = useState([]);
 
     useEffect(() => {
@@ -37,7 +70,7 @@ const FacilityList = () => {
     }, []);
 
     return (
-            <div className="card-list">
+            <div className="card-list" ref={scrollRef}>
               {facilities.map((item, index) => (
                 <Card
                   key={index}
