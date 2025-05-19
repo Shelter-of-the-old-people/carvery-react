@@ -3,7 +3,7 @@ import Info from './FInfo';
 import "../styles/styleguide.css";
 import '../styles/facilityCard.css';
 
-const FInfoList = ({infoList=[]}) => {
+const FInfoList = ({infoList}=[]) => {
 
     return (
          <div className="info-list">

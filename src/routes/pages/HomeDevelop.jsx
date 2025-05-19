@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Weather from '../../components/Weather';
 import OneLineCardSet from '../../components/oneLineCardSet';
+import TwoLineCardSet from '../../components/TwoLineCardSet';
 import CarSupplies from '../../components/CarSupplies';
 import Gnb from '../../components/Gnb';
 import '../../styles/styleguide.css';
@@ -31,8 +32,12 @@ const HomeDevelop = () => {
       </span>
       <span  id="setting">
       <OneLineCardSet title={"정비소"}/>
+<<<<<<< HEAD
       </span>
       <span  id="supplies">
+=======
+      <TwoLineCardSet title={"몰라시발"}/>
+>>>>>>> main
       <CarSupplies/>
       </span>
     </div>
