@@ -26,7 +26,6 @@ const mockProducts = [
       ],
       call: '00000000000',
     }
-    // 추가 상품 예시
   ];
 
 const FacilityList = () => {

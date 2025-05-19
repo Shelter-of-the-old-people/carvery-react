@@ -21,16 +21,10 @@ const Gnb = ({menuList = []}) => {
                 </div>
             ))}
             <div className="menu">
-                    <div className="menu-text">
-                        <a href='/Map'>지도로 찾기</a>
-                    </div>
+                <div className="menu-text">
+                    <a href='/map'>지도로 찾기</a>
                 </div>
-        </div>
-        <div className="search-bar-frame">
-            <form className="gnb-search-bar-frame" action="" method="get">
-                <img src="/assets/search.svg"></img>
-                <input type="text" name='search' className="search-input" />
-            </form>
+            </div>
         </div>
      </div>
     );
