@@ -3,7 +3,7 @@ import Card from './ProductCard';
 
 const mockProducts = [
     {
-      productImage: 'https://test-it.co.kr/face93.png',
+      productImage: 'https://placehold.co/260x224',
       brand: '로드위너',
       productName: '로드위너 18L 대용량 세차 버킷 + 그릿가드 + 뚜껑 세트',
       price: 14620,
@@ -11,7 +11,7 @@ const mockProducts = [
       reviewCount: 179,
     },
     {
-      productImage: 'https://test-it.co.kr/face93.png',
+      productImage: 'https://placehold.co/260x224',
       brand: '(주)월드크린',
       productName: '대용량 세차 버킷 세트',
       price: 6800,
@@ -19,9 +19,9 @@ const mockProducts = [
       reviewCount: 23,
     },
     {
-      productImage: 'https://test-it.co.kr/face93.png',
-      brand: '(주)월드ㅇㄹㄴㅇㄹㄴㄹ크린',
-      productName: '대용량 킷 세트',
+      productImage: 'https://placehold.co/260x224',
+      brand: '(주)클린',
+      productName: '대용량 카샴푸',
       price: 6800,
       rating: 3.5,
       reviewCount: 23,

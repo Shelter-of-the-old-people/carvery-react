@@ -3,6 +3,7 @@
   height: 360px;
   position: relative;
   border-radius: 16px;
+  gap: 10px;
   overflow: hidden;
 }
 
@@ -38,7 +39,7 @@
 .card-content {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
   flex: 1;
 }
 

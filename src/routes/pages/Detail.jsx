@@ -13,9 +13,27 @@ import '../../styles/facilityDetail.css';
 const mockMenus =
   [
     {title: "시설정보", targetId: "detail"},
-    {title: "세차장", targetId: "carwash"},
-    {title: "정비소", targetId: "setting"}
+    {title: "관광지", targetId: "aa"},
+    {title: "음식점", targetId: "bb"},
+    {title: "카페", targetId: "cc"}
   ];
+
+
+const mockDetail = 
+  {
+    title: '민호네',
+    map: 'https://placehold.co/460x300',
+    dist: '4.0',
+    address: '구미시 양포동',
+    infos: [
+      {title: 'hand'},
+      {title: 'toilet'}
+    ],
+    call: '00000000000',
+    time:'00:00 ~ 00:00',
+    close: '연중무휴',
+    images: ['https://placehold.co/156x156','https://placehold.co/156x156','https://placehold.co/156x156','https://placehold.co/156x156'],
+  };
 
 const Detail = () => {
 
@@ -23,13 +41,26 @@ const Detail = () => {
     <div className="home">
       <Gnb menuList={mockMenus}/>
       <span  id="detail">
-      <FacilityDetail />
+      <FacilityDetail 
+        images={mockDetail.images}
+        title={mockDetail.title}
+        map={mockDetail.map}
+        address={mockDetail.address}
+        dist={mockDetail.dist}
+        info={mockDetail.infos}
+        call={mockDetail.call}
+        time={mockDetail.time}
+        closed={mockDetail.close}
+      />
       </span>
-      <span  id="carwash">
-      <OneLineCardSet title={"세차장"}/>
+      <span  id="aa">
+      <OneLineCardSet title={"관광지"}/>
       </span>
-      <span  id="setting">
-      <OneLineCardSet title={"정비소"}/>
+      <span  id="bb">
+      <OneLineCardSet title={"음식점"}/>
+      </span>
+      <span  id="cc">
+      <OneLineCardSet title={"카페"}/>
       </span>
     </div>
   );

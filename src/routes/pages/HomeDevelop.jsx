@@ -19,22 +19,30 @@ const mockMenus =
     {title: "차량용품", targetId: "supplies"}
   ];
 
+const getCurrentLocation = () => {
+    // 현재 위치 가져오기
+    navigator.geolocation.getCurrentPosition((position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        console.log("현재 위치", lat, lon);
+    });
+};
 const HomeDevelop = () => {
 
   return (
     <div className="home">
       <Gnb menuList={mockMenus}/>
       <span  id="weather">
-      <Weather />
+        <Weather />
       </span>
       <span  id="carwash">
-      <OneLineCardSet title={"세차장"}/>
+        <OneLineCardSet title={"세차장"}/>
       </span>
       <span  id="setting">
-      <OneLineCardSet title={"정비소"}/>
+        <OneLineCardSet title={"정비소"}/>
       </span>
       <span  id="supplies">
-      <CarSupplies/>
+        <CarSupplies/>
       </span>
     </div>
   );

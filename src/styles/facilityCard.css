@@ -15,6 +15,21 @@
     color: var(--black);
 }
 
+.supplies-frame .titler{
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-32);
+    width: fit-content;
+    padding-left: 100px;
+    color: var(--black);
+}
+
+.supplies-frame{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .two-line-card-frame .title{
     font-family: 'Pretendard-Regular';
     font-size: 32px;
@@ -83,7 +98,6 @@
     align-items: center;
     width: 1198px;
     height: fit-content;
-    overflow: hidden;
 }
 
 .card-list {
