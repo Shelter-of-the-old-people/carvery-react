@@ -22,7 +22,7 @@ const mockMenus =
 const mockDetail = 
   {
     title: '민호네',
-    map: 'https://placehold.co/460x300',
+    map: 'https://placehold.co/460x230',
     dist: '4.0',
     address: '구미시 양포동',
     infos: [
@@ -32,7 +32,6 @@ const mockDetail =
     call: '00000000000',
     time:'00:00 ~ 00:00',
     close: '연중무휴',
-    images: ['https://placehold.co/156x156','https://placehold.co/156x156','https://placehold.co/156x156','https://placehold.co/156x156'],
   };
 
 const Detail = () => {

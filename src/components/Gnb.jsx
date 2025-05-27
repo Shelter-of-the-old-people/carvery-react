@@ -12,14 +12,7 @@ const Gnb = ({menuList = []}) => {
         }, 100); // DOM이 렌더링될 시간을 확보
     };
 
-      const getCurrentLocation = () => {
-        // 현재 위치 가져오기
-        navigator.geolocation.getCurrentPosition((position) => {
-            let lat = position.coords.latitude;
-            let lon = position.coords.longitude;
-            console.log("현재 위치", lat, lon);
-        });
-    };
+      
 
 
     return  (
