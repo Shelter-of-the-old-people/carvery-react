@@ -3,11 +3,11 @@ import LeafletMap from "./LeafletMap";
 import SearchBar from "./SearchBar";
 
 
-function SearchMap() {
+function SearchMap({lat,lng}) {
   return (
     <div className="search-map-container">
       <h2 className="search-map-title">지도로 찾기</h2>
-        <GoogleMap className="map-box" latitude={37.5665} longitude={126.9780} />
+        <GoogleMap className="map-box" latitude={lat} longitude={lng}/>
 
       {/* 서울시청 좌표 */}
     </div>
