@@ -27,6 +27,7 @@ const mockProducts = [
       call: '054-000-0002',
     },
     {
+
       productImage: 'https://placehold.co/335x206',
       title: '업체 3',
       dist: '4.0',
