@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Weather from '../../components/Weather';
-import OneLineCardSet from '../../components/oneLineCardSet';
+import OneLineCardSet from '../../components/OneLineCardSet';
 import TwoLineCardSet from '../../components/TwoLineCardSet';
 import CarSupplies from '../../components/CarSupplies';
 import Gnb from '../../components/Gnb';
@@ -10,7 +10,6 @@ import '../../styles/Weather.css';
 import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
-import Footer from '../../components/Footer';
 import { useGeoLocation} from '../../hooks/useGeoLocation';
 
   const mockMenus =
@@ -39,7 +38,6 @@ const HomeDevelop = () => {
       <span  id="supplies">
         <CarSupplies/>
       </span>
-    <Footer/>
     </div>
   );
 };
