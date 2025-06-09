@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import MapCard from '../../components/SearchMap';
 import Gnb from '../../components/Gnb';
-import OneLineCardSet from '../../components/oneLineCardSet';
+import OneLineCardSet from '../../components/OneLineCardSet';
 import '../../styles/styleguide.css';
 import '../../styles/globals.css';
 import '../../styles/Home.css';
