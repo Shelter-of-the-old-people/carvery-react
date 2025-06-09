@@ -1,0 +1,63 @@
+.footer {              /* 화면 아래에 붙이기 */
+  left: 0;
+  width: 100vw;            /* 전체 화면 가로폭 */
+  padding: 40px 0px;
+  background-color: #ffffff;
+  color: #777777;
+  font-size: var(--font-size-20);
+  line-height: var(--line-height);
+  box-sizing: border-box;
+  z-index: 100;            /* 다른 요소 위에 표시 */
+  border-top: 1px solid #ddd; /* 선택: 위 구분선 */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 100px;
+}
+.footer-left {
+  flex: 1;
+}
+.footer-title {
+  width: 100%;             /*  가로 전체 차지 */
+  display: block;          /*  줄바꿈 강제 */
+  font-weight: var(--logo-font-weight);
+  font-size: var(--logo-font-size);
+  margin: 0;
+  margin-bottom: 20px;     /*  아래와 간격 */
+}
+.footer-description {
+  flex: 1;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  min-width: 0; /* flex-item 너비 초과 방지 */
+}
+
+.footer-right {
+  flex: 0 0 auto; /* 또는 width: fit-content; */
+  text-align: right;
+}
+.footer-team-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer-team-list {
+  list-style-type: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.footer-team-list li {
+  margin-bottom: 6px;
+} 

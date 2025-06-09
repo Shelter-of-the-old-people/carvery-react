@@ -11,6 +11,7 @@ import '../../styles/Weather.css';
 import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
+import Footer from '../../components/Footer';
 
 const mockMenus =
   [
@@ -37,6 +38,7 @@ const HomeDevelop = () => {
       <span  id="supplies">
         <CarSupplies/>
       </span>
+    <Footer/>
     </div>
   );
 };
