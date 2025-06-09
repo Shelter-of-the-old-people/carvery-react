@@ -20,7 +20,7 @@
 .one-line-card-frame .title{
     font-family: 'Pretendard-Regular';
     font-weight: var(--font-weight-6);
-    font-size: var(--font-size-32);
+    font-size: 28px;
     width: fit-content;
     padding-left: 100px;
     color: var(--black);
@@ -29,7 +29,7 @@
 .supplies-frame .titler{
     font-family: 'Pretendard-Regular';
     font-weight: var(--font-weight-6);
-    font-size: var(--font-size-32);
+    font-size: 28px;
     width: fit-content;
     padding-left: 100px;
     color: var(--black);
@@ -43,7 +43,7 @@
 
 .two-line-card-frame .title{
     font-family: 'Pretendard-Regular';
-    font-size: 32px;
+    font-size: 28px;
     width: fit-content;
     padding-left: 80px;
     color: var(--gray-4);

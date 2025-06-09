@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Suspense } from 'react';
 import Weather from '../../components/Weather';
 import OneLineCardSet from '../../components/oneLineCardSet';
 import TwoLineCardSet from '../../components/TwoLineCardSet';
@@ -10,7 +11,6 @@ import '../../styles/Weather.css';
 import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
-import Footer from '../../components/Footer';
 
 const mockMenus =
   [
@@ -20,14 +20,6 @@ const mockMenus =
     {title: "차량용품", targetId: "supplies"}
   ];
 
-const getCurrentLocation = () => {
-    // 현재 위치 가져오기
-    navigator.geolocation.getCurrentPosition((position) => {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        console.log("현재 위치", lat, lon);
-    });
-};
 const HomeDevelop = () => {
 
   return (
@@ -45,7 +37,6 @@ const HomeDevelop = () => {
       <span  id="supplies">
         <CarSupplies/>
       </span>
-    <Footer/>
     </div>
   );
 };

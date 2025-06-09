@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useGeoLocation } from '../hooks/useGeoLocation';
+
+
 
 const Gnb = ({menuList = []}) => { 
 
@@ -29,11 +32,6 @@ const Gnb = ({menuList = []}) => {
             <div className="menu">
                 <div className="menu-text">
                     <a href='/map'>지도로 찾기</a>
-                </div>
-            </div>
-            <div className="menu">
-                <div className="menu-text">
-                    <button className='menu-text' onClick={()=> getCurrentLocation()}>현위치</button>
                 </div>
             </div>
         </div>

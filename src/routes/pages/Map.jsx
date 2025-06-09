@@ -18,10 +18,10 @@ const mockMenus =
 const Map = () => {
   return (
     <div className="home">
-        <Gnb menuList={mockMenus}/>
-        <span id="map"><MapCard/></span>
-        <span id="carwash"><OneLineCardSet title={'세차장'}/></span>
-        <span id="setting"><OneLineCardSet title={'정비소'}/></span>
+      <Gnb menuList={mockMenus}/>
+      <span id="map"><MapCard/></span>
+      <span id="carwash"><OneLineCardSet title={'세차장'}/></span>
+      <span id="setting"><OneLineCardSet title={'정비소'}/></span>
     </div>
   );
 };
