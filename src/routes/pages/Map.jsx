@@ -7,6 +7,8 @@ import '../../styles/globals.css';
 import '../../styles/Home.css';
 import '../../styles/searchMap.css';
 import 'leaflet/dist/leaflet.css';
+import { useGeoLocation } from '../../hooks/useGeoLocation';
+
 
 const mockMenus =
   [
@@ -16,11 +18,12 @@ const mockMenus =
   ];
 
 const Map = () => {
+    const { location } = useGeoLocation();
   return (
     <div className="home">
       <Gnb menuList={mockMenus}/>
-      <span id="map"><MapCard/></span>
-      <span id="carwash"><OneLineCardSet title={'세차장'}/></span>
+      <span id="map"><MapCard lat={location?.latitude} lng={location?.longitude}/></span>
+      <span id="carwash"><OneLineCardSet title={'세차장'} lat={location?.latitude} lng={location?.longitude} /></span>
       <span id="setting"><OneLineCardSet title={'정비소'}/></span>
     </div>
   );
