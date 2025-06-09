@@ -28,7 +28,7 @@ const mockProducts = [
     },
     {
       productImage: 'https://test-it.co.kr/face93.png',
-      title: '민호네',
+      title: '호림네',
       dist: '4.0',
       address: '구미시 양포동',
       infos: [

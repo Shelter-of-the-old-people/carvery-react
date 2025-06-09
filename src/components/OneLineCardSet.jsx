@@ -5,11 +5,11 @@ const OneLineCardSet = ({title}) => {
     const listRef = useRef(null);
 
   const scrollLeft = () => {
-    listRef.current?.scrollBy({ left: -400, behavior: 'smooth' });
+    listRef.current?.scrollBy({ left: -394, behavior: 'smooth' });
   };
 
   const scrollRight = () => {
-    listRef.current?.scrollBy({ left: 400, behavior: 'smooth' });
+    listRef.current?.scrollBy({ left: 394, behavior: 'smooth' });
   };
     return  (
         <div className="one-line-card-frame">

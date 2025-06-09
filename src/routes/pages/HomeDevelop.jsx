@@ -10,6 +10,7 @@ import '../../styles/Weather.css';
 import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
+import Footer from '../../components/Footer';
 
 const mockMenus =
   [
@@ -29,6 +30,7 @@ const HomeDevelop = () => {
       <OneLineCardSet title={"정비소"}/>
       <TwoLineCardSet title={"몰라시발"}/>
       <CarSupplies/>
+      <Footer/>
     </div>
   );
 };
