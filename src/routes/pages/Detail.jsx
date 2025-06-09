@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FacilityDetail from '../../components/FacilityDetail';
-import OneLineCardSet from '../../components/oneLineCardSet';
+import OneLineCardSet from '../../components/OneLineCardSet';
 import Gnb from '../../components/Gnb';
 import '../../styles/styleguide.css';
 import '../../styles/globals.css';
