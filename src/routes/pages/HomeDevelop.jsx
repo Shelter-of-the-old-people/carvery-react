@@ -10,7 +10,6 @@ import '../../styles/Weather.css';
 import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
-import Footer from '../../components/Footer';
 import { useGeoLocation} from '../../hooks/useGeoLocation';
 
   const mockMenus =
@@ -20,6 +19,8 @@ import { useGeoLocation} from '../../hooks/useGeoLocation';
     {title: "정비소", targetId: "setting"},
     {title: "차량용품", targetId: "supplies"}
   ];
+
+    
 
 const HomeDevelop = () => {
   const { location } = useGeoLocation();
@@ -39,7 +40,6 @@ const HomeDevelop = () => {
       <span  id="supplies">
         <CarSupplies/>
       </span>
-    <Footer/>
     </div>
   );
 };

@@ -15,9 +15,6 @@ const Gnb = ({menuList = []}) => {
         }, 100); // DOM이 렌더링될 시간을 확보
     };
 
-      
-
-
     return  (
     <div className="gnb">
         <div className="logo-frame"><a href='/home'><img className="logo" src="/assets/logo.svg"></img></a></div>
