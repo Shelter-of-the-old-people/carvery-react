@@ -4,10 +4,12 @@
     flex-direction: column;
     justify-content: space-between;
     width: 966px;
-    height: 500px;
+    height: auto;
+    margin: 20px 0px;
 }
 
 .weather-frame .weather-Icon{
+    display: flex;
     width: 100%;
 }
 
@@ -20,7 +22,7 @@
     flex-direction: column;
     justify-content: flex-start;
     width: 100%;
-    gap: 10px;
+    gap: 20px;
 }
 
 .weather-frame .today-frame {
@@ -34,20 +36,20 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
-    gap: 10px;
+    gap: 14px;
 }
 
 .weather-frame .ment {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Regular', sans-serif;
     font-weight: var(--font-weight-6);
-    font-size: var(--font-size-32);
+    font-size: 28px;
     width: fit-content;
     color: var(--black);
 }
 
 
 .weather-frame .info-text {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Regular', sans-serif;
     font-weight: var(--font-weight-5);
     font-size: var(--font-size-16);
     width: fit-content;
@@ -56,7 +58,7 @@
 
 .divier {
     width: 2px;
-    height: 80%;
+    height: 90%;
     background-color: var(--gray-7-50);
     border-radius: 10px;
 }
@@ -68,10 +70,26 @@
     gap: 10px;
 }
 
+.weather-frame .temp-frame {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    gap: 4px;
+}
+
 .weather-frame .temp {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Regular', sans-serif;
     font-weight: var(--font-weight-6);
-    font-size: var(--font-size-40);
+    font-size: 30px;
+    width: fit-content;
+    color: var(--black);
+}
+
+.weather-frame .info {
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-16);
     width: fit-content;
     color: var(--black);
 }
@@ -87,8 +105,8 @@
 .weather-frame .weekly-frame {
     display: flex;
     flex-direction: row;
-    padding: 10px;
-    gap: 20px;
+    padding: 16px 20px;
+    gap: 30px;
     width: fit-content;
     background-color: var(--ffffff-30);
     border-radius: 20px;
@@ -102,10 +120,50 @@
     gap: 6px;
 }
 
-.weekly-frame .temp {
-    font-family: 'Pretendard-Regular';
-    font-weight: var(--font-weight-4);
+.weather-info .icon-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    gap: 0px;
+    background-image: url(../../public/assets/weathers/weather-frame-background.png);
+}
+.weather-info .am-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+}
+.weather-info .pm-icon {
+    display: flex;
+    width: 24px;
+    height: 24px;
+}
+
+.weather-info .am-icon-frame {
+    display: flex;
+    width: 100%;
+    height: 24px;
+}
+.weather-info .pm-icon-frame {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 24px;
+}
+
+.weather-info .temp {
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-weight: var(--font-weight-5);
     font-size: var(--font-size-14);
+    width: fit-content;
+    color: var(--black);
+}
+
+.weather-info .day {
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-16);
     width: fit-content;
     color: var(--black);
 }

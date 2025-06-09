@@ -8,15 +8,6 @@
     height: 100%;
 }
 
-.home .weather-frame{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 966px;
-    height: 500px;
-    margin-bottom: 20px;
-}
-
 .home .one-line-card-frame{
     display: flex;
     flex-direction: column;
