@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import Weather from '../../components/Weather';
 import OneLineCardSet from '../../components/oneLineCardSet';
 import TwoLineCardSet from '../../components/TwoLineCardSet';
@@ -11,8 +10,10 @@ import '../../styles/Weather.css';
 import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
+import Footer from '../../components/Footer';
+import { useGeoLocation} from '../../hooks/useGeoLocation';
 
-const mockMenus =
+  const mockMenus =
   [
     {title: "날씨", targetId: "weather"},
     {title: "세차장", targetId: "carwash"},
@@ -21,6 +22,7 @@ const mockMenus =
   ];
 
 const HomeDevelop = () => {
+  const { location } = useGeoLocation();
 
   return (
     <div className="home">
@@ -29,7 +31,7 @@ const HomeDevelop = () => {
         <Weather />
       </span>
       <span  id="carwash">
-        <OneLineCardSet title={"세차장"}/>
+        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude}/>
       </span>
       <span  id="setting">
         <OneLineCardSet title={"정비소"}/>
@@ -37,6 +39,7 @@ const HomeDevelop = () => {
       <span  id="supplies">
         <CarSupplies/>
       </span>
+    <Footer/>
     </div>
   );
 };
