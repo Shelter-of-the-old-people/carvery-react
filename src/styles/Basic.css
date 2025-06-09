@@ -1,7 +1,3 @@
-body{
-    background-color: var(--background-sunny);
-}
-
 .image{
     background-color: var(--gray-7);
 }
@@ -113,7 +109,7 @@ body{
 .one-line-card-frame .title{
     font-family: var(--font-family);
     font-weight: var(--font-weight-5);
-    font-size: var(--font-size-32);
+    font-size: 28px;
     line-height: var(--line-height);
     width: fit-content;
     padding-left: 100px;

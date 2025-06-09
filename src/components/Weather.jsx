@@ -10,21 +10,22 @@ const Weather = () => {
     const [todayIcon, setTodayIcon] = useState([]);
     const [todayTemp, setTodayTemp] = useState([]);
 
-    document.body.style.backgroundColor = `var(--background-${todayIcon})`;
-
     useEffect(() => {
+    if (todayIcon) {
+        localStorage.setItem('todayIcon', todayIcon);
+    }
     if (weatherInfo && Array.isArray(weatherInfo.weathers) && weatherInfo.weathers.length > 0) {
         setWeathers(weatherInfo.weathers);
         setTodayIcon(weatherInfo.todayIcon);
         setTodayTemp(weatherInfo.todayTemp);
         }
-    }, [weatherInfo]);
+    }, [weatherInfo, todayIcon]);
 
     const iconPath = `/assets/weathers/${todayIcon}-today.svg`;
 
     return  (
         <div className="weather-frame" id="weather">
-            <div className="weather-Icon">
+            <div className="weather-info-Frame">
                 <div className="weather-board">
                     <div className="today-frame">
                         <div className="recommend-frame">
@@ -43,6 +44,7 @@ const Weather = () => {
                     <WeeklyList weatherList={weathers}/>
                 </div>
                 <img className="w-Icon" src={iconPath}></img>
+
             </div>
         </div>
     );

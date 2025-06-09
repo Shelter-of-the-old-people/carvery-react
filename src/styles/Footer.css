@@ -1,4 +1,4 @@
-.footer {              /* 화면 아래에 붙이기 */
+.footer {       
   left: 0;
   width: 100vw;            /* 전체 화면 가로폭 */
   padding: 40px 0px;
@@ -9,6 +9,7 @@
   box-sizing: border-box;
   z-index: 100;            /* 다른 요소 위에 표시 */
   border-top: 1px solid #ddd; /* 선택: 위 구분선 */
+  margin-top: auto;
 }
 
 .footer-container {
