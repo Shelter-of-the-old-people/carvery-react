@@ -20,6 +20,8 @@ import { useGeoLocation} from '../../hooks/useGeoLocation';
     {title: "차량용품", targetId: "supplies"}
   ];
 
+    
+
 const HomeDevelop = () => {
   const { location } = useGeoLocation();
 

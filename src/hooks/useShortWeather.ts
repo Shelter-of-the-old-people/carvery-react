@@ -134,11 +134,10 @@ export const useShortWeather = (lat?: number, lon?: number,date?:string, nowTime
                 const res = await fetch(`https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=9b3CODM26QpRZg3h6ZdqFpT%2B2jA9iLE8IbW2VHyx6ZqAiCO9c7%2FJiUhO94PdJJzKR5xOzCSyoUI9uBpO9ELYkQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${shortDate}&base_time=${shortTime}&nx=${gridCoords?.x}&ny=${gridCoords?.y}`);
                 const data = await res.json();
                 const items = data.response.body.items.item;
-                
+
                 const resSshort = await fetch(`https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=9b3CODM26QpRZg3h6ZdqFpT%2B2jA9iLE8IbW2VHyx6ZqAiCO9c7%2FJiUhO94PdJJzKR5xOzCSyoUI9uBpO9ELYkQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${date}&base_time=${nowTime}&nx=${gridCoords?.x}&ny=${gridCoords?.y}`);                
                 const dataSshort = await resSshort.json();
                 const itemsSshort  = dataSshort.response.body.items.item;
-
 
                 setSummary(processForecast(items, itemsSshort, date, nowTime));
                 setError('')

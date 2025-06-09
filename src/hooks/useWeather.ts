@@ -141,13 +141,8 @@ export const useWeather = (options = {}) => {
         };
     });
 
-    console.log(shortArr);
-
-
       // 3. 합치기 (총 10일)
       const allWeather = [...shortArr.slice(0, 4), ...midArr.slice(0, 4)].slice(0, 10);
-
-      console.log(shortArr);
       setWeatherInfo({
         address: addressObj.address[0].address,
         date: getDate(date),

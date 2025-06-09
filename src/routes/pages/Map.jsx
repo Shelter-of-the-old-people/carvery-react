@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MapCard from '../../components/SearchMap';
 import Gnb from '../../components/Gnb';
 import OneLineCardSet from '../../components/OneLineCardSet';
@@ -18,11 +18,19 @@ const mockMenus =
   ];
 
 const Map = () => {
-    const { location } = useGeoLocation();
+  const { location: initialLocation } = useGeoLocation();
+  const [location, setLocation] = useState(initialLocation);
+
+  useEffect(() => {
+    if (initialLocation) {
+      setLocation(initialLocation);
+    }
+  }, [initialLocation]);
+
   return (
     <div className="home">
       <Gnb menuList={mockMenus}/>
-      <span id="map"><MapCard lat={location?.latitude} lng={location?.longitude}/></span>
+      <span id="map"><MapCard lat={location?.latitude} lng={location?.longitude} setLocation={setLocation}/></span>
       <span id="carwash"><OneLineCardSet title={'세차장'} lat={location?.latitude} lng={location?.longitude} /></span>
       <span id="setting"><OneLineCardSet title={'정비소'}/></span>
     </div>
