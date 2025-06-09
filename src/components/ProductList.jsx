@@ -30,6 +30,7 @@ import { fetchProducts } from '../api/SearchApi';
 //     // 추가 상품 예시
 //  ];      
 
+
 const ProductList = ({ category }) => {
     const [products, setProducts] = useState([]);
 

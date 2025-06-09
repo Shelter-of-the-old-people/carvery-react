@@ -14,23 +14,38 @@ import Footer from '../../components/Footer';
 
 const mockMenus =
   [
-    {title: "날씨", targetId: ""},
-    {title: "세차장", targetId: ""},
-    {title: "정비소", targetId: ""},
-    {title: "차량용품", targetId: ""}
+    {title: "날씨", targetId: "weather"},
+    {title: "세차장", targetId: "carwash"},
+    {title: "정비소", targetId: "setting"},
+    {title: "차량용품", targetId: "supplies"}
   ];
 
+const getCurrentLocation = () => {
+    // 현재 위치 가져오기
+    navigator.geolocation.getCurrentPosition((position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        console.log("현재 위치", lat, lon);
+    });
+};
 const HomeDevelop = () => {
 
   return (
     <div className="home">
       <Gnb menuList={mockMenus}/>
-      <Weather />
-      <OneLineCardSet title={"세차장"}/>
-      <OneLineCardSet title={"정비소"}/>
-      <TwoLineCardSet title={"몰라시발"}/>
-      <CarSupplies/>
-      <Footer/>
+      <span  id="weather">
+        <Weather />
+      </span>
+      <span  id="carwash">
+        <OneLineCardSet title={"세차장"}/>
+      </span>
+      <span  id="setting">
+        <OneLineCardSet title={"정비소"}/>
+      </span>
+      <span  id="supplies">
+        <CarSupplies/>
+      </span>
+    <Footer/>
     </div>
   );
 };

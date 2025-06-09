@@ -1,0 +1,121 @@
+.detail-frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width:1200px;
+    height: fit-content;
+    gap: 20px;
+}
+
+.didiv{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.didiv .titlee{
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-32);
+    width: fit-content;
+    padding-left: 50px;
+    color: var(--black);
+}
+
+
+.detail-frame .image-frame{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: 636px;
+    gap:10px;
+}
+
+.image-frame .main-image{
+    width: 100%;
+    height: 85%;
+    border-radius: 20px;
+}
+
+.image-frame .image-list-frame{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--ffffff-30);
+    flex-grow: 1;
+}
+
+
+.detail-frame .detail-info-frame{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 40px;
+    gap: 20px;
+    width: 45%;
+    height: fit-content;
+    border-radius: 20px;
+    background-color: var(--ffffff-30);
+}
+
+.detail-info-frame .detail-map{
+    align-items: center;
+    width: 100%;
+    height: 230px;
+    border-radius: 20px;
+    background-color: var(--ffffff-30);
+    overflow: hidden;
+}
+
+.detail-info-frame .row-frame{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.detail-info-frame .row{
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-info-frame .card-title{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-20);
+    color: var(--black);
+}
+
+
+.detail-info-frame .title{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    font-size: 18px;
+    color: var(--gray-5);
+}
+
+.detail-info-frame .content-frame{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.detail-info-frame .content{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-20);
+    color: var(--black);
+}
+
+
+.detail-info-frame .content-dist{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-7);
+    font-size: var(--font-size-24);
+    color: var(--black);
+}

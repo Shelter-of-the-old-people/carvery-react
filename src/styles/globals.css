@@ -7,13 +7,13 @@
 html{
     margin:0;
     padding:0;
+    height: auto;
 }
 
 body{
     margin: 0;
     place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
+    height: 100%;
 }
 
 /* a blue color as a generic focus style */
@@ -24,6 +24,7 @@ button:focus-visible {
 a {
     text-decoration: none;
     color:black;
+    cursor: pointer;
 }
 
 p{

@@ -42,7 +42,7 @@ const CarSupplies = () => {
     
     return (
       <div className="supplies-frame">
-        <p className="title">세차용품</p>
+        <p className="titler">세차용품</p>
         <div className="product-category-list">
           <div className="product-category">
             <input 
