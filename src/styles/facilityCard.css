@@ -2,23 +2,50 @@
 .home .one-line-card-frame{
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    height: fit-content;
+}
+
+.home .two-line-card-frame{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    gap: 10px;
     width: fit-content;
     height: fit-content;
 }
 
 .one-line-card-frame .title{
     font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: 28px;
     width: fit-content;
     padding-left: 100px;
-    color: var(--gray-4);
+    color: var(--black);
+}
+
+.supplies-frame .titler{
+    font-family: 'Pretendard-Regular';
+    font-weight: var(--font-weight-6);
+    font-size: 28px;
+    width: fit-content;
+    padding-left: 100px;
+    color: var(--black);
+}
+
+.supplies-frame{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .two-line-card-frame .title{
     font-family: 'Pretendard-Regular';
-    font-size: 32px;
+    font-size: 28px;
     width: fit-content;
     padding-left: 80px;
-    margin-bottom: 10px;
     color: var(--gray-4);
 }
 
@@ -26,8 +53,8 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 1296px;
-  height: 1040px;
+  width: fit-content;
+  padding: 10px;
   gap: 10px;
 }
 
@@ -48,7 +75,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    gap: 20px;
+    gap: 10px;
     width: 374px;
     height: 470px;
     background-color: var(--ffffff-30);
@@ -81,7 +108,6 @@
     align-items: center;
     width: 1198px;
     height: fit-content;
-    overflow: hidden;
 }
 
 .card-list {
@@ -93,6 +119,13 @@
     height: fit-content;
     overflow-x: hidden;
     scroll-behavior: smooth;
+}
+
+.two-line-card-frame .card-list {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px;
+    gap: 20px;
 }
 
 .card-list .card {
@@ -180,6 +213,7 @@
     font-weight: var(--font-weight-5);
     font-size: var(--font-size-14);
     width: fit-content;
+    height: fit-content;
     color: var(--gray-5);
     padding: 0;
 }

@@ -1,0 +1,9 @@
+export const fetchProducts = async (query) => {
+  const response = await fetch(`http://131.186.16.173:8080/api/search?query=${encodeURIComponent(query)}`);
+  
+  if (!response.ok) {
+    throw new Error('상품 데이터를 불러오는 데 실패했습니다.');
+  }
+
+  return await response.json(); //
+};

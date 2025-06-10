@@ -8,9 +8,11 @@ const WeeklyList = ({weatherList = []}) => {
             {weatherList.map((item, index) => (
                 <Card
                   key={index}
-                  temp={item.temperature}
-                  weather={item.weather}
                   day={item.day}
+                  tmx={item.tmx}
+                  tmn={item.tmn}
+                  amIcon={item.amIcon}
+                  pmIcon={item.pmIcon}
                 />
               ))}
         </div>

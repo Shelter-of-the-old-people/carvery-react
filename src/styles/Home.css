@@ -5,16 +5,8 @@
     gap: 30px;
     padding: 0 40px;
     width: 100vw;
-    height: 100vh;
-}
-
-.home .weather-frame{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 966px;
-    height: 500px;
-    margin-bottom: 20px;
+    height: 100%;
+    margin-bottom: 100px;
 }
 
 .home .one-line-card-frame{
@@ -63,9 +55,9 @@
 }
 
 .supplies-frame > .title {
-    font-family: 'Pretendard-Regular';
+    font-family: 'Pretendard-Regular', sans-serif;
     font-weight: var(--font-weight-5);
-    font-size: var(--font-size-32);
+    font-size: 28px;
     line-height: var(--line-height);
     width: fit-content;
     color: var(--gray-5);
