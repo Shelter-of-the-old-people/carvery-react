@@ -9,7 +9,6 @@ import '../../styles/searchMap.css';
 import 'leaflet/dist/leaflet.css';
 import { useGeoLocation } from '../../hooks/useGeoLocation';
 
-
 const mockMenus =
   [
     {title: "지도", targetId: "map"},
