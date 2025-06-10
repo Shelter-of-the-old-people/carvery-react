@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import MapCard from '../../components/SearchMap';
+import '../../components/MapCard';
 import Gnb from '../../components/Gnb';
 import OneLineCardSet from '../../components/OneLineCardSet';
 import '../../styles/styleguide.css';
@@ -19,6 +19,8 @@ const mockMenus =
 const Map = () => {
   const { location: initialLocation } = useGeoLocation();
   const [location, setLocation] = useState(initialLocation);
+  //const [markerList, setMarkerList] = useState([]);
+
 
   useEffect(() => {
     if (initialLocation) {
