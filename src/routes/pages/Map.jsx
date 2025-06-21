@@ -6,7 +6,6 @@ import '../../styles/styleguide.css';
 import '../../styles/globals.css';
 import '../../styles/Home.css';
 import '../../styles/searchMap.css';
-import 'leaflet/dist/leaflet.css'; // Leaflet은 Google Maps와 무관하므로 사용하지 않는다면 제거 고려
 import { useGeoLocation } from '../../hooks/useGeoLocation';
 import { fetchNearbyData } from '../../api/NearbyApi';
 
@@ -49,7 +48,7 @@ const Map = () => {
   return (
     <div className="home">
       <Gnb menuList={mockMenus}/>
-      <span id="map">
+      <span className="search-map-container">
         {/* location이 null이 아닐 때만 MapCard를 렌더링하여 안전하게 위도/경도를 전달합니다. */}
         {location ? (
           <MapCard 
