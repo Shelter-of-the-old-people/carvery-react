@@ -8,6 +8,7 @@ import '../../styles/Home.css';
 import '../../styles/searchMap.css';
 import 'leaflet/dist/leaflet.css';
 import { useGeoLocation } from '../../hooks/useGeoLocation';
+import { fetchNearbyData } from '../api/NearbyApi';
 
 const mockMenus =
   [
@@ -19,8 +20,16 @@ const mockMenus =
 const Map = () => {
   const { location: initialLocation } = useGeoLocation();
   const [location, setLocation] = useState(initialLocation);
+  const [ carWashList, setCarWashList ] = useState([]);
   //const [markerList, setMarkerList] = useState([]);
 
+  useEffect(() => {
+      if (lat && lng) {
+        fetchNearbyData(lat, lng)
+          .then(setCarWashList)
+          .catch(err => console.error('API 오류:', err));
+      }
+    }, [lat, lng]);
 
   useEffect(() => {
     if (initialLocation) {
@@ -32,7 +41,7 @@ const Map = () => {
     <div className="home">
       <Gnb menuList={mockMenus}/>
       <span id="map"><MapCard lat={location?.latitude} lng={location?.longitude} setLocation={setLocation}/></span>
-      <span id="carwash"><OneLineCardSet title={'세차장'} lat={location?.latitude} lng={location?.longitude} /></span>
+      <span id="carwash"><OneLineCardSet title={'세차장'} lat={location?.latitude} lng={location?.longitude} carWashData={carWashList} /></span>
       <span id="setting"><OneLineCardSet title={'정비소'}/></span>
     </div>
   );

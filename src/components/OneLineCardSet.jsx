@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import FacilityList from './FacilityList';
 import { fetchNearbyData } from '../api/NearbyApi';
 
-const OneLineCardSet = ({title, lat, lng}) => { 
+const OneLineCardSet = ({title, lat, lng, carWashData}) => { 
     const listRef = useRef(null);
     const [data, setData] =useState([]);
     const [scrolling, setScrolling] = useState(false);
@@ -43,7 +43,7 @@ const OneLineCardSet = ({title, lat, lng}) => {
             <div className="card-frame">
                 <button className="nav-button" onClick={scrollLeft}><img src='/assets/left_button.svg'></img></button>
                 <div className="card-list-frame">
-                    <FacilityList scrollRef={listRef} facilities={data}/>
+                    <FacilityList scrollRef={listRef} facilities={carWashData}/>
                 </div>
                 <button className="nav-button" onClick={scrollRight}><img src='/assets/right_button.svg'></img></button>
             </div>
