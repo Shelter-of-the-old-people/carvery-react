@@ -1,0 +1,19 @@
+/* GoogleMap.module.css */
+
+.mapContainer { /* 클래스 이름은 camelCase로 작성하는 관례가 있습니다. */
+  width: 100%;
+  height: 100%;
+}
+
+.centerMarker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.markerImage {
+    width: 40px;
+    height: 40px;
+}
