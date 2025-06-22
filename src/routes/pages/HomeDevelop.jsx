@@ -11,6 +11,7 @@ import '../../styles/Home.css';
 import '../../styles/Gnb.css'
 import '../../styles/facilityCard.css';
 import { useGeoLocation} from '../../hooks/useGeoLocation';
+import { useGeoCoder} from '../../hooks/useGeoCoder';
 
   const mockMenus =
   [
@@ -20,10 +21,11 @@ import { useGeoLocation} from '../../hooks/useGeoLocation';
     {title: "차량용품", targetId: "supplies"}
   ];
 
-    
-
 const HomeDevelop = () => {
   const { location } = useGeoLocation();
+  const apiAddressObj = useGeoCoder(location?.latitude, location?.longitude);
+
+  console.log();
 
   return (
     <div className="home">
@@ -32,7 +34,7 @@ const HomeDevelop = () => {
         <Weather />
       </span>
       <span  id="carwash">
-        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude}/>
+        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude} apiAddress = {apiAddressObj.address[0].unitaddress}/>
       </span>
       <span  id="setting">
         <OneLineCardSet title={"정비소"}/>

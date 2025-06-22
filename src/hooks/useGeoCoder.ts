@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 export interface IAddress {
   address: string
+  unitAddress: string
   state: string
   city: string
 }
@@ -9,6 +10,7 @@ export interface IAddress {
 function extractAddressInfo(data) {
   return data.response.result.map(item => ({
     address: item.text,
+    unitAddress: item.structure.level1 + " " + item.structure.level2 + " " + item.structure.level3,
     state: item.structure.level1,
     city: item.structure.level2
   }));
@@ -32,6 +34,8 @@ export const useGeoCoder = (lat?: number, lon?: number) => {
                 setError('주소 정보를 불러오는데 실패했습니다.');
             }
         };
+        
+
         fetchLocation();
     }, [lat, lon]);
 
