@@ -23,9 +23,16 @@ import { useGeoCoder} from '../../hooks/useGeoCoder';
 
 const HomeDevelop = () => {
   const { location } = useGeoLocation();
-  const apiAddressObj = useGeoCoder(location?.latitude, location?.longitude);
+  
+  const {apiAddressObj} = useGeoCoder(location?.latitude, location?.longitude);
 
-  console.log();
+  const [apiAddress, setApiAddress] = useState(false);
+  
+      useEffect(() => {
+      if (apiAddressObj) {
+        setApiAddress(apiAddressObj.address[0].unitAddress);
+      }
+    }, [apiAddressObj]);
 
   return (
     <div className="home">
@@ -34,7 +41,7 @@ const HomeDevelop = () => {
         <Weather />
       </span>
       <span  id="carwash">
-        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude} apiAddress = {apiAddressObj.address[0].unitaddress}/>
+        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude} address = {apiAddress}/>
       </span>
       <span  id="setting">
         <OneLineCardSet title={"정비소"}/>
