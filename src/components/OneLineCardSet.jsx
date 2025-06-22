@@ -2,18 +2,18 @@ import React, { useEffect, useState, useRef } from 'react';
 import FacilityList from './FacilityList';
   import { fetchNearbyData } from '../api/NearbyApi';
 
-const OneLineCardSet = ({title, lat, lng, carWashData}) => { 
+const OneLineCardSet = ({title, lat, lng}) => { 
   const listRef = useRef(null);
   const [data, setData] =useState([]);
   const [scrolling, setScrolling] = useState(false);
 
-  //   useEffect(() => {
-  //   if (lat && lng) {
-  //     fetchNearbyData(lat, lng)
-  //       .then(setData)
-  //       .catch(err => console.error('API 오류:', err));
-  //   }
-  // }, [lat, lng]);
+    useEffect(() => {
+    if (lat && lng) {
+      fetchNearbyData(lat, lng)
+        .then(setData)
+        .catch(err => console.error('API 오류:', err));
+    }
+  }, [lat, lng]);
 
     const scrollLeft = () => {
   if (listRef.current && !scrolling) {
@@ -43,7 +43,7 @@ const OneLineCardSet = ({title, lat, lng, carWashData}) => {
             <div className="card-frame">
                 <button className="nav-button" onClick={scrollLeft}><img src='/assets/left_button.svg'></img></button>
                 <div className="card-list-frame">
-                    <FacilityList scrollRef={listRef} facilities={carWashData}/>
+                    <FacilityList scrollRef={listRef} facilities={data}/>
                 </div>
                 <button className="nav-button" onClick={scrollRight}><img src='/assets/right_button.svg'></img></button>
             </div>
