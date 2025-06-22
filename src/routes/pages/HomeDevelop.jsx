@@ -28,11 +28,11 @@ const HomeDevelop = () => {
 
   const [apiAddress, setApiAddress] = useState(false);
   
-      useEffect(() => {
-      if (apiAddressObj) {
-        setApiAddress(apiAddressObj.address[0].unitAddress);
-      }
-    }, [apiAddressObj]);
+  useEffect(() => {
+  if (apiAddressObj) {
+      setApiAddress(apiAddressObj.address[0].unitAddress);
+    }
+  }, [apiAddressObj]);
 
   return (
     <div className="home">
