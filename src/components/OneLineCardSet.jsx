@@ -2,10 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 import FacilityList from './FacilityList';
   import { fetchNearbyData } from '../api/NearbyApi';
 
-const OneLineCardSet = ({title, lat, lng}) => { 
+const OneLineCardSet = ({title, lat, lng, apiAddress}) => { 
   const listRef = useRef(null);
   const [data, setData] =useState([]);
   const [scrolling, setScrolling] = useState(false);
+
+  console.log("=================="+apiAddress);
 
     useEffect(() => {
     if (lat && lng) {
