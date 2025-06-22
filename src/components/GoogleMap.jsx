@@ -1,25 +1,9 @@
 import { useEffect, useRef } from "react";
 import styles from '../styles/GoogleMap.module.css'; // 스타일 시트 경로
+// import MarkerIcon from '../assets/center_marker.svg?react';
+import { ReactComponent as MarkerIcon } from '../assets/center_marker.svg';
 
-// // 1. 중앙에 표시될 마커 (아이콘) 스타일
-// const centerMarkerStyle = {
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   // 아이콘의 중앙이 정확히 지도의 중앙에 오도록 조정합니다.
-//   transform: 'translate(-50%, -50%)',
-//   // 마커 아이콘 아래의 지도가 클릭 및 드래그될 수 있도록 합니다.
-//   pointerEvents: 'none', 
-//   fontSize: '3rem', // 아이콘 크기는 원하는 대로 조절하세요.
-// };
-
-// // 2. 지도를 담을 컨테이너 스타일
-// const mapContainerStyle = {
-//   width: '100%',
-//   height: '100%',
-// };
-
-function GoogleMap({ latitude, longitude, setLocation, className }) {
+function GoogleMap({ latitude, longitude, setLocation, className, markerColor = 'royalblue' }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
 
@@ -94,12 +78,13 @@ function GoogleMap({ latitude, longitude, setLocation, className }) {
     }
   }, [latitude, longitude]);
 
-  // 5. 렌더링: 지도 컨테이너와 중앙 마커 아이콘을 함께 렌더링
   return (
     <div className={className} style={{ position: 'relative' }}>
       <div ref={mapContainerRef} className={styles.mapContainer} />
       <div className={styles.centerMarker}>
-        <img src="/assets/center_marker.svg" alt="Center Marker" className={styles.markerImage} /> {/* 원하는 아이콘(이미지, SVG 등)으로 변경 가능 */}
+        <div style={{ color: markerColor }}> {/* 이 div의 color 값이 SVG의 currentColor로 전달됩니다. */}
+            <MarkerIcon className={styles.markerImage} />
+        </div>
       </div>
     </div>
   );
