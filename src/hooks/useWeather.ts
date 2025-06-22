@@ -68,8 +68,6 @@ export const useWeather = (options = {}) => {
 
   const [weatherInfo, setWeatherInfo] = useState<IWeatherWithLocation>();
   const [error, setError] = useState('');
-
-
   
  useEffect(() => {
     // 필수 데이터가 모두 준비됐는지 확인
@@ -156,7 +154,9 @@ export const useWeather = (options = {}) => {
       setError('날씨 정보를 불러오지 못했습니다.');
       setWeatherInfo(undefined);
     }
-  }, [
+  }
+  
+  , [
     location,
     addressObj.address?.address,
     shortForecast.summary,
