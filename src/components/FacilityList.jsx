@@ -9,12 +9,7 @@ const FacilityList = ({ scrollRef , className="" ,facilities=[]}) => {
               {facilities.map((item, index) => (
                 <Card
                   key={index}
-                  image={item.productImage}
-                  title={item.title}
-                  dist={item.dist}
-                  address={item.address}
-                  info={item.infos}
-                  call={item.call}
+                  facility={item}
                 />
               ))}
             </div>
