@@ -62,7 +62,7 @@ const FacilityDetail = ({ images = ['/assets/noImage.png', '/assets/noImage.png'
         <div className="image-frame">
           <img className='main-image' src={mainImage} />
           <div className="image-list-frame">
-            tlqkf
+            길찾기
           </div>
         </div>
       </div>

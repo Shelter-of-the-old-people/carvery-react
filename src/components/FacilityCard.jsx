@@ -3,10 +3,10 @@ import InfoList from './FInfoList';
 import '../styles/styleguide.css';
 import '../styles/facilityCard.css';
 
-const FacilityCard = ({ title,image, dist, address, info , call }) => { 
+const FacilityCard = ({ id, title,image, dist, address, info , call }) => { 
 
     return  (
-    <a href='/detail'>
+    <a href={`/detail/${id}`}>
         <div className="card">
             <div className="info-head">
                 <p className="name">{title}</p>
