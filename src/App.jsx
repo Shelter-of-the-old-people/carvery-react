@@ -3,8 +3,6 @@ import { Outlet } from 'react-router-dom';
 import './styles/styleguide.css'
 import Footer from './components/Footer';
 
-
-
 const App = () => {
    const [todayIcon, setTodayIcon] = useState(localStorage.getItem('todayIcon') || '');
 

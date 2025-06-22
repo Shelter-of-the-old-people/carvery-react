@@ -1,7 +1,7 @@
 import GoogleMap from "./GoogleMap";
 
 
-function SearchMap({lat, lng, setLocation}) {
+function MapCard({lat, lng, setLocation}) {
   return (
     <div className="search-map-container">
       <h2 className="search-map-title">지도로 찾기</h2>
@@ -12,4 +12,4 @@ function SearchMap({lat, lng, setLocation}) {
   );
 }
 
-export default SearchMap; 
+export default MapCard; 
