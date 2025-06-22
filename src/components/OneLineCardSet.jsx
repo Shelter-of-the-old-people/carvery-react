@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useRef } from 'react';
 import FacilityList from './FacilityList';
-  import { fetchNearbyData } from '../api/NearbyApi';
+import { fetchNearbyData } from '../api/NearbyApi';
 
-const OneLineCardSet = ({title, lat, lng, address}) => { 
+const OneLineCardSet = ({title, lat, lng, query}) => { 
   const listRef = useRef(null);
   const [data, setData] =useState([]);
   const [scrolling, setScrolling] = useState(false);
 
     useEffect(() => {
-    if (lat && lng) {
-      fetchNearbyData(lat, lng)
+    if (lat && lng&&query) {
+      fetchNearbyData(lat, lng, query)
         .then(setData)
         .catch(err => console.error('API 오류:', err));
     }
-  }, [lat, lng]);
+  }, [lat, lng, query]);
 
     const scrollLeft = () => {
   if (listRef.current && !scrolling) {

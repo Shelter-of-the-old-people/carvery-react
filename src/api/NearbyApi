@@ -1,5 +1,5 @@
-export const fetchNearbyData = async (lat, lng) => {
-  const response = await fetch(`http://131.186.16.173:8080/nearby?lat=${encodeURIComponent(lat)}&lng=${encodeURIComponent(lng)}`);
+export const fetchNearbyData = async (lat, lng, query) => {
+  const response = await fetch(`http://131.186.16.173:8080/api/carvery/nearby?lat=${encodeURIComponent(lat)}&lng=${encodeURIComponent(lng)}&query=${encodeURIComponent(query)}`);
 
   if (!response.ok) {
     throw new Error('근처 데이터를 불러오는 데 실패했습니다.');

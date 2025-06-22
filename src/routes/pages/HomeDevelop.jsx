@@ -24,15 +24,24 @@ import { useGeoCoder} from '../../hooks/useGeoCoder';
 const HomeDevelop = () => {
   const { location } = useGeoLocation();
   
-  const {apiAddressObj} = useGeoCoder(location?.latitude, location?.longitude);
+  const { address: addressArray } = useGeoCoder(location?.latitude, location?.longitude);
 
-  const [apiAddress, setApiAddress] = useState(false);
+  const [washQuery, setWashQuery] = useState('');
+  const [repairQuery, setRepairQuery] = useState('');
   
   useEffect(() => {
-  if (apiAddressObj) {
-      setApiAddress(apiAddressObj.address[0].unitAddress);
+  if (Array.isArray(addressArray) && addressArray.length > 0) {
+      // 주소 문자열을 추출합니다.
+      const addressString = addressArray[0].unitAddress;
+      
+      const addressParts = addressString.split(' ');
+      if (addressParts.length >= 2) {
+        // '세차장'과 '정비소' 검색어를 각각 생성하여 상태에 저장합니다.
+        setWashQuery(`${addressParts[0]} ${addressParts[1]} 세차장`);
+        setRepairQuery(`${addressParts[0]} ${addressParts[1]} 정비소`);
+      }
     }
-  }, [apiAddressObj]);
+  }, [addressArray]); // addressArray가 변경될 때 이 useEffect를 실행합니다.
 
   return (
     <div className="home">
@@ -41,10 +50,10 @@ const HomeDevelop = () => {
         <Weather />
       </span>
       <span  id="carwash">
-        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude} address = {apiAddress}/>
+        <OneLineCardSet title={"세차장"} lat={location?.latitude} lng={location?.longitude} query={washQuery}/>
       </span>
       <span  id="setting">
-        <OneLineCardSet title={"정비소"}/>
+        <OneLineCardSet title={"정비소"} lat={location?.latitude} lng={location?.longitude} query={repairQuery}/>
       </span>
       <span  id="supplies">
         <CarSupplies/>
