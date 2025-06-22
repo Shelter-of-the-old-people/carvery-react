@@ -10,7 +10,7 @@ export interface IAddress {
 function extractAddressInfo(data) {
   return data.response.result.map(item => ({
     address: item.text,
-    unitAddress: item.structure.level1 + " " + item.structure.level2 + " " + item.structure.level3,
+    unitAddress: item.structure.level1 + " " + item.structure.level2 + " " + item.structure.level3 + " " + item.structure.level4L,
     state: item.structure.level1,
     city: item.structure.level2
   }));
