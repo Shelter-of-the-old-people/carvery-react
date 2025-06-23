@@ -8,10 +8,14 @@ import '../styles/globals.css';
 import '../styles/facilityDetail.css';
 import '../styles/facilityCard.css';
 
-const FacilityDetail = ({ images = ['/assets/noImage.png'], title, address, dist, info = [], call, time, closed, lat, lon, currentLocation }) => {
+const FacilityDetail = ({ images = ['/assets/noImage.png'], title, address, dist, info = [], call = '정보없음', businessHours = '', offDutyDay = '정보없음', lat, lon, currentLocation }) => {
   const mainImage = images[0];
 
    const destinationName = encodeURIComponent(title);
+   let initialCall = call === "" ? "정보없음" : call;
+   let initialBusinessHours = businessHours === "" ? "정보없음" : businessHours;
+   let InitialOffDutyDay = offDutyDay === "" ? "정보없음" : offDutyDay;
+
 
      // 출발지(currentLocation) 위도, 경도가 있으면 URL에 추가, 없으면 빈 값으로 둡니다.
   const startLat = currentLocation?.latitude || '';
@@ -48,21 +52,21 @@ const FacilityDetail = ({ images = ['/assets/noImage.png'], title, address, dist
             </div>
           </div>
           <div className="content-frame">
-            <p className="title">시설 정보</p>
+            <p className="title">시설정보</p>
             <InfoList infoList={info} />
           </div>
           <div className="content-frame">
             <p className="title">전화번호</p>
-            <p className="content">{call}</p>
+            <p className="content">{initialCall}</p>
           </div>
           <div className='row-frame'>
             <div className="content-frame">
-              <p className="title">운영시간</p>
-              <p className="content">{time}</p>
+              <p className="title">영업정보</p>
+              <p className="content">{initialBusinessHours}</p>
             </div>
             <div className="content-frame">
-              <p className="title">휴무일</p>
-              <p className="content">{closed}</p>
+              <p className="title"></p>
+              <p className="content-big">{InitialOffDutyDay}</p>
             </div>
           </div>
         </div>

@@ -146,7 +146,7 @@
     padding: 3px;
     margin: 4px;
     gap: 10px;
-    width: fit-content;
+    width: 100%;
     height: fit-content;
 }
 
@@ -154,7 +154,7 @@
     display: flex;
     flex-direction: column;
     gap: 4px;
-    width: fit-content;
+    width: 100%;
     height: fit-content;
 }
 
@@ -163,9 +163,10 @@
     align-items: center;
     justify-items: center;
     flex-direction: row;
-    gap: 4px;
-    width: fit-content;
+    gap: 6px;
+    width: 100%;
     height: fit-content;
+    justify-content: space-between;
 }
 
 .info-head .name {
@@ -218,9 +219,30 @@
     padding: 0;
 }
 
+.card .content{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-14);
+    width: fit-content;
+    height: fit-content;
+    color: var(--black);
+    padding: 0;
+}
+
+.card .content-big{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    font-size: 18px;
+    width: fit-content;
+    height: fit-content;
+    color: var(--black);
+    margin-right: 16px;
+}
+
 .card .image{
     width: 100%;
     aspect-ratio: 333/205;
+    border-radius: 10px;
     object-fit: cover;
     display: block;
 }
