@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import styles from '../styles/GoogleMap.module.css'; // 스타일 시트 경로
 // import MarkerIcon from '../assets/center_marker.svg?react';
-import { ReactComponent as MarkerIcon } from '../assets/center_marker.svg';
+//import { ReactComponent as MarkerIcon } from '../assets/center_marker.svg';
 
 function GoogleMap({ latitude, longitude, setLocation, className, markerColor = 'royalblue' }) {
   const mapContainerRef = useRef(null);
