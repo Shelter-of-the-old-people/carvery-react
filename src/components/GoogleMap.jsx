@@ -33,19 +33,27 @@ function GoogleMap({ latitude, longitude, setLocation, className, markerColor = 
       // 정보창 인스턴스를 생성하고 ref에 저장합니다.
       infoWindowRef.current = new InfoWindow();
 
-      const fetchCarveries = async (lat, lng, query) => {
-        if (!lat || !lng || !query) return;
-        const params = new URLSearchParams({ lat, lng, query });
-        try {
-          const response = await fetch(`/carvery-api/api/carvery/nearby?${params.toString()}`);
-          if (!response.ok) throw new Error(`API call failed: ${response.status}`);
-          const data = await response.json();
-          setCarveries(Array.isArray(data) ? data : []); // 항상 배열을 보장
-        } catch (error) {
-          console.error("Failed to fetch carveries:", error);
-          setCarveries([]);
-        }
-      };
+      // const fetchCarveries = async (lat, lng, query) => {
+      //   if (!lat || !lng || !query) return;
+      //   const params = new URLSearchParams({ lat, lng, query });
+      //   try {
+      //     const response = await fetch(`/carvery-api/api/carvery/nearby?${params.toString()}`);
+      //     if (!response.ok) throw new Error(`API call failed: ${response.status}`);
+      //     const data = await response.json();
+      //     setCarveries(Array.isArray(data) ? data : []); // 항상 배열을 보장
+      //   } catch (error) {
+      //     console.error("Failed to fetch carveries:", error);
+      //     setCarveries([]);
+      //   }
+      // };
+
+      useEffect(() => {
+          if (lat && lng&&query) {
+            fetchNearbyData(lat, lng, query)
+              .then(setCarveries)
+              .catch(err => console.error('API 오류:', err));
+          }
+      }, [lat, lng, query]);
 
       google.maps.event.addListenerOnce(map, 'idle', () => {
         const center = map.getCenter();
