@@ -4,6 +4,7 @@ import { useShortWeather } from './useShortWeather';
 import { useMidForecast } from './useMidWeather';
 import useDate from './useDate';
 import { useGeoCoder } from './useGeoCoder';
+import { getCarWashRecommendation, getDetailedWeatherInfo } from './getCarWashRecommendation';
 
 interface IWeather{
     day: string;
@@ -19,6 +20,10 @@ interface IWeatherWithLocation {
     todayIcon: string;
     todayTemp: string;
     weathers : IWeather[];
+
+    recommendation: string;
+    recommendationReason: string;
+    weatherCondition: 'excellent' | 'good' | 'fair' | 'poor';
 }
 
 function getDayOfWeek(yyyymmdd:string, plus:number): string {
@@ -61,16 +66,33 @@ function getMidIcon(sky?: string) {
 
 export const useWeather = (options = {}) => {
   const { location } = useGeoLocation();
-  const { date, shortTime, shortDate, midTime, midDate, nowTime } = useDate();
+  
+  const { 
+    date, shortTime, shortDate, midTime, midDate, nowTime,
+    ultraSafeTime, ultraSafeDate, retryWaitMs, isUpdateWindow 
+  } = useDate();
+  
   const addressObj = useGeoCoder(location?.latitude, location?.longitude);
-  const shortForecast = useShortWeather(location?.latitude, location?.longitude, date, nowTime, shortDate, shortTime);
+  
+  const shortForecast = useShortWeather(
+    location?.latitude, 
+    location?.longitude, 
+    date, 
+    nowTime, 
+    shortDate, 
+    shortTime,
+    ultraSafeDate,
+    ultraSafeTime,
+    retryWaitMs,
+    isUpdateWindow
+  );
+  
   const midForecast = useMidForecast(addressObj.address, midDate + midTime);
 
   const [weatherInfo, setWeatherInfo] = useState<IWeatherWithLocation>();
   const [error, setError] = useState('');
   
  useEffect(() => {
-    // 필수 데이터가 모두 준비됐는지 확인
     if (
       !location ||
       !addressObj.address ||
@@ -82,7 +104,6 @@ export const useWeather = (options = {}) => {
     }
 
     try {
-      // 1. 단기예보(오늘~3일) 정리
       const shortArr: IWeather[] = shortForecast.summary.map(item => {
         let aIcon = item.amWindy ? "windy" : "sunny";
         let pIcon = item.pmWindy ? "windy" : "sunny";
@@ -126,7 +147,6 @@ export const useWeather = (options = {}) => {
             };
         });
 
-      // 2. 중기예보(4~10일) 정리
       const midArr: IWeather[] = midForecast.forecast.map(item => {
         const aIcon = getMidIcon(item.amSky);
         const pIcon = getMidIcon(item.pmSky);
@@ -139,14 +159,19 @@ export const useWeather = (options = {}) => {
         };
     });
 
-      // 3. 합치기 (총 10일)
       const allWeather = [...shortArr.slice(0, 4), ...midArr.slice(0, 4)].slice(0, 10);
+       const carWashAnalysis = getCarWashRecommendation(allWeather, allWeather[0].tmn);
+      const detailedInfo = getDetailedWeatherInfo(allWeather, allWeather[0].tmn);
+      
       setWeatherInfo({
         address: addressObj.address[0].address,
         date: getDate(date),
         todayIcon:allWeather[0].amIcon ?? "sunny", 
         todayTemp:allWeather[0].tmn,
-        weathers: allWeather
+        weathers: allWeather,
+        recommendation: carWashAnalysis.recommendation,
+        recommendationReason: carWashAnalysis.reason,
+        weatherCondition: detailedInfo.overallCondition
       });
       setError('');
 
@@ -163,5 +188,14 @@ export const useWeather = (options = {}) => {
     midForecast.forecast,
   ]);
 
-  return { weatherInfo, error };
+  return { 
+    weatherInfo, 
+    error,
+    // 🔧 추가: 디버깅 및 상태 확인용 정보 제공
+    isUpdateWindow,
+    isRetrying: shortForecast.isRetrying,
+    // 🔧 추가: 세차 추천 정보 (별도 접근 가능)
+    carWashRecommendation: weatherInfo?.recommendation,
+    weatherCondition: weatherInfo?.weatherCondition
+  };
 };

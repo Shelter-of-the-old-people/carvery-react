@@ -65,13 +65,14 @@
     align-items: center;
     width: 100%;
     height: 230px;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: var(--ffffff-30);
     overflow: hidden;
 }
 
-.detail-info-frame .row-frame{
+.row-frame{
     display: flex;
+    justify-content: center;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
@@ -100,7 +101,6 @@
 .detail-info-frame .content-frame{
     display: flex;
     flex-direction: column;
-    gap: 10px;
     width: fit-content;
     height: fit-content;
 }
@@ -110,6 +110,14 @@
     font-weight: var(--font-weight-6);
     font-size: var(--font-size-20);
     color: var(--black);
+}
+
+.detail-info-frame .content-big{
+    font-family: "Pretendard-Regular";
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-24);
+    color: var(--black);
+    margin-right: 16px;
 }
 
 

@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useGridCoords } from './useGridCoords'
 
-
 interface IShortWeather{
     date: string
     tmx: string
@@ -19,11 +18,9 @@ type ForecastItem = {
   fcstTime: string;
   category: string;
   fcstValue: string;
-  // 기타 필요한 필드
 };
 
 function processForecast(items, itemsSshort, todayDate: string, nowTime:string): IShortWeather[] {
-  // 날짜별로 그룹핑
   const byDate = {};
   items.forEach(item => {
     const date = item.fcstDate;
@@ -31,7 +28,6 @@ function processForecast(items, itemsSshort, todayDate: string, nowTime:string):
     byDate[date].push(item);
   });
 
-  // 날짜별 결과 생성
   const result = Object.entries(byDate).map(([date, dayItems]) => {
     const items = dayItems as ForecastItem[];
     // 최고/최저 기온
@@ -39,48 +35,43 @@ function processForecast(items, itemsSshort, todayDate: string, nowTime:string):
 
     let tmn: string;
     if(date === todayDate) {
-        tmn = (itemsSshort.find(i => i.category === 'T1H')?.obsrValue ?? '').split('.')[0];
+        tmn = (itemsSshort?.find(i => i.category === 'T1H')?.obsrValue ?? 
+               items.find(i => i.category === 'TMN')?.fcstValue ?? '').split('.')[0];
     } else {
         tmn = (items.find(i => i.category === 'TMN')?.fcstValue ?? '').split('.')[0];
     }
 
-
-
-    // 오전/오후 시간대 분리
     const amTimes = ["0000","0100","0200","0300","0400","0500","0600","0700","0800","0900","1000","1100"];
     const pmTimes = ["1200","1300","1400","1500","1600","1700","1800","1900","2000","2100","2200","2300"];
 
-    // 오전 PTY
     const amPty = items
       .filter(i => i.category === 'PTY' && amTimes.includes(i.fcstTime) && i.fcstValue !== "0")
       .map(i => i.fcstValue);
 
-    // 오후 PTY
     const pmPty = items
       .filter(i => i.category === 'PTY' && pmTimes.includes(i.fcstTime) && i.fcstValue !== "0")
       .map(i => i.fcstValue);
 
-    // 오전/오후 PTY: 0이 아닌 값이 있으면 그 중 첫 번째 값, 없으면 0
     let amPtyValue: string;
     if(date === todayDate) {
-        amPtyValue = itemsSshort.find(i => i.category === 'PTY')?.obsrValue ?? '';
+        amPtyValue = itemsSshort?.find(i => i.category === 'PTY')?.obsrValue ?? 
+                    (amPty.length > 0 ? amPty[0] : "0");
     } else {
         amPtyValue = amPty.length > 0 ? amPty[0] : "0";
     }
     const pmPtyValue = pmPty.length > 0 ? pmPty[0] : "0";
 
-       // 오전 SKY
     const amSky = items
       .filter(i => i.category === 'SKY' && amTimes.includes(i.fcstTime) && i.fcstValue !== "1")
       .map(i => i.fcstValue);
-    // 오후 SKY
     const pmSky = items
       .filter(i => i.category === 'SKY' && pmTimes.includes(i.fcstTime) && i.fcstValue !== "1")
       .map(i => i.fcstValue);
-    // 오전/오후 SKY: 4가 있으면 4, 3이 있으면 3, 둘 다 없으면 1
+      
     let amSkyValue = "1";
     if(date === todayDate) {
-        amSkyValue = items.find(i => (i.category === 'SKY' && amTimes.includes(i.fcstTime)))?.fcstValue ?? '';
+        amSkyValue = itemsSshort?.find(i => (i.category === 'SKY' && amTimes.includes(i.fcstTime)))?.obsrValue ?? 
+                    items.find(i => (i.category === 'SKY' && amTimes.includes(i.fcstTime)))?.fcstValue ?? '1';
     } else if (amSky.includes("4")) {
         amSkyValue = "4";
     } else if (amSky.includes("3")) {
@@ -94,7 +85,6 @@ function processForecast(items, itemsSshort, todayDate: string, nowTime:string):
         pmSkyValue = "3";
     }
 
-    // 오전/오후 WSD
     const amWsd = items
       .filter(i => i.category === 'WSD' && amTimes.includes(i.fcstTime))
       .map(i => parseFloat(i.fcstValue));
@@ -102,7 +92,6 @@ function processForecast(items, itemsSshort, todayDate: string, nowTime:string):
       .filter(i => i.category === 'WSD' && pmTimes.includes(i.fcstTime))
       .map(i => parseFloat(i.fcstValue));
 
-    // 오전/오후 풍속: 2.8 이상인 값이 하나라도 있으면 true, 아니면 false
     const amWindy = amWsd.some(val => val >= 2.8);
     const pmWindy = pmWsd.some(val => val >= 2.8);
 
@@ -122,31 +111,77 @@ function processForecast(items, itemsSshort, todayDate: string, nowTime:string):
   return result;
 }
 
-export const useShortWeather = (lat?: number, lon?: number,date?:string, nowTime?:string, shortDate?: string, shortTime?: string) => {
+export const useShortWeather = (
+    lat?: number, 
+    lon?: number,
+    date?: string, 
+    nowTime?: string, 
+    shortDate?: string, 
+    shortTime?: string,
+    ultraSafeDate?: string,
+    ultraSafeTime?: string,
+    retryWaitMs?: number,
+    isUpdateWindow?: boolean
+) => {
     const gridCoords = useGridCoords(lat, lon);
     const [summary, setSummary] = useState<IShortWeather[]>([]);
     const [error, setError] = useState('');
+    const [isRetrying, setIsRetrying] = useState(false);
+
+    const fetchUltraSafeData = async (safeDate: string, safeTime: string) => {
+        try {
+            const response = await fetch(
+                `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=9b3CODM26QpRZg3h6ZdqFpT%2B2jA9iLE8IbW2VHyx6ZqAiCO9c7%2FJiUhO94PdJJzKR5xOzCSyoUI9uBpO9ELYkQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${safeDate}&base_time=${safeTime}&nx=${gridCoords?.x}&ny=${gridCoords?.y}`
+            );
+            const data = await response.json();
+            
+            if (data.response?.header?.resultCode === "00" && data.response?.body?.items?.item) {
+                return data.response.body.items.item;
+            }
+            return null;
+        } catch (err) {
+            console.warn('초단기실황 요청 실패:', err);
+            return null;
+        }
+    };
+
+    const fetchWeatherData = async() => {
+        if (lat === undefined || lon === undefined || !gridCoords || !shortDate || !shortTime || !date || !ultraSafeDate || !ultraSafeTime) return;
+        
+        try{
+            const res = await fetch(`https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=9b3CODM26QpRZg3h6ZdqFpT%2B2jA9iLE8IbW2VHyx6ZqAiCO9c7%2FJiUhO94PdJJzKR5xOzCSyoUI9uBpO9ELYkQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${shortDate}&base_time=${shortTime}&nx=${gridCoords?.x}&ny=${gridCoords?.y}`);
+            const data = await res.json();
+            const items = data.response.body.items.item;
+
+            const itemsSshort = await fetchUltraSafeData(ultraSafeDate, ultraSafeTime);
+
+            setSummary(processForecast(items, itemsSshort, date, nowTime!));
+            setError('');
+
+            if (isUpdateWindow && retryWaitMs && retryWaitMs > 0 && !isRetrying) {
+                setIsRetrying(true);
+                setTimeout(async () => {
+                    try {
+                        const retryItemsSshort = await fetchUltraSafeData(date, nowTime!);
+                        if (retryItemsSshort) {
+                            setSummary(processForecast(items, retryItemsSshort, date, nowTime!));
+                        }
+                    } catch (err) {
+                        console.warn('재시도 실패:', err);
+                    } finally {
+                        setIsRetrying(false);
+                    }
+                }, retryWaitMs);
+            }
+
+        } catch (err: any) {
+            setError('3일간의 날씨 정보를 불러오는데 실패했습니다.')
+        }
+    };
 
     useEffect(() => {
-        if (lat === undefined || lon === undefined || !gridCoords || !shortDate || !shortTime || !date || !nowTime) return;
-        const fatchLocation = async() => {
-            try{
-                const res = await fetch(`https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=9b3CODM26QpRZg3h6ZdqFpT%2B2jA9iLE8IbW2VHyx6ZqAiCO9c7%2FJiUhO94PdJJzKR5xOzCSyoUI9uBpO9ELYkQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${shortDate}&base_time=${shortTime}&nx=${gridCoords?.x}&ny=${gridCoords?.y}`);
-                const data = await res.json();
-                const items = data.response.body.items.item;
+        fetchWeatherData();
+    }, [lat, lon, gridCoords, shortDate, shortTime, date, nowTime, ultraSafeDate, ultraSafeTime])
 
-                const resSshort = await fetch(`https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=9b3CODM26QpRZg3h6ZdqFpT%2B2jA9iLE8IbW2VHyx6ZqAiCO9c7%2FJiUhO94PdJJzKR5xOzCSyoUI9uBpO9ELYkQ%3D%3D&pageNo=1&numOfRows=1000&dataType=JSON&base_date=${date}&base_time=${nowTime}&nx=${gridCoords?.x}&ny=${gridCoords?.y}`);                
-                const dataSshort = await resSshort.json();
-                const itemsSshort  = dataSshort.response.body.items.item;
-
-                setSummary(processForecast(items, itemsSshort, date, nowTime));
-                setError('')
-            }catch (err: any) {
-                setError('3일간의 날씨 정보를 불러오는데 실패했습니다.')
-            }
-        }
-        fatchLocation()
-    }, [lat, lon, gridCoords, shortDate, shortTime, date, nowTime])
-
-    return { summary , error}
-}
+    return { summary, error, isRetrying };
+};

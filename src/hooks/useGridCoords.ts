@@ -8,7 +8,6 @@ interface GridCoords {
 export const useGridCoords = (lat?: number, lon?: number): GridCoords | null => {
   const [gridCoords, setGridCoords] = useState<GridCoords | null>(null)
 
-  // 계산 함수 (useCallback으로 메모이제이션)
   const calculateGrid = useCallback((lat: number, lon: number) => {
     const RE = 6371.00877
     const GRID = 5.0
@@ -46,7 +45,6 @@ export const useGridCoords = (lat?: number, lon?: number): GridCoords | null => 
     }
   }, [lat, lon])
 
-  // 좌표 변경 시 재계산
   useEffect(() => {
     if (typeof lat === 'number' && typeof lon === 'number') {
       const coords = calculateGrid(lat, lon)

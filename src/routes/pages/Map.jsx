@@ -8,6 +8,7 @@ import '../../styles/Home.css';
 import '../../styles/searchMap.css';
 import { useGeoLocation } from '../../hooks/useGeoLocation';
 import { fetchNearbyData } from '../../api/NearbyApi';
+import { useGeoCoder } from '../../hooks/useGeoCoder';
 
 const mockMenus =
   [
@@ -23,12 +24,31 @@ const Map = () => {
   const [location, setLocation] = useState(null); 
   //const [carWashList, setCarWashList] = useState([]);
 
+   // 세차장과 정비소 검색어를 각각 저장할 state를 추가
+  const [washQuery, setWashQuery] = useState('');
+  const [repairQuery, setRepairQuery] = useState('');
+
+  const { address: mapAddressArray } = useGeoCoder(location?.latitude, location?.longitude);
+
   // 이 useEffect는 initialLocation이 처음으로 유효한 값을 가질 때 한 번 실행되도록 합니다.
   useEffect(() => {
     if (initialLocation && !location) { // initialLocation이 있고, location이 아직 설정되지 않았을 때
       setLocation(initialLocation);
     }
   }, [initialLocation, location]); // location이 변경될 때도 이 훅이 재실행될 수 있도록 의존성 추가
+  
+  useEffect(() => {
+    if (mapAddressArray && mapAddressArray.length > 0) {
+      const addressString = mapAddressArray[0].unitAddress;
+      const addressParts = addressString.split(' ');
+      if (addressParts.length >= 2) {
+        const baseAddress = `${addressParts[1]} ${addressParts[2]}`;
+        setWashQuery(`${baseAddress} 세차장`);
+        setRepairQuery(`${baseAddress} 정비소`);
+      }
+    }
+  }, [mapAddressArray]);
+
 
   // location 상태가 변경될 때 (사용자가 마커를 드래그하거나 초기 위치 설정 시) API를 호출합니다.
 //   useEffect(() => {
@@ -65,10 +85,16 @@ const Map = () => {
         <OneLineCardSet 
           title={'세차장'} 
           lat={location?.latitude} 
-          lng={location?.longitude} 
+          lng={location?.longitude}
+          query={washQuery}
         />
       </span>
-      <span id="setting"><OneLineCardSet title={'정비소'} /></span>
+      <span id="setting">
+        <OneLineCardSet 
+        title={'정비소'}
+        lat={location?.latitude} 
+        lng={location?.longitude}
+        query={repairQuery} /></span>
     </div>
   );
 };
