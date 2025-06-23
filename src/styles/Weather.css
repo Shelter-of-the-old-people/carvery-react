@@ -34,12 +34,14 @@
     flex-direction: row;
     gap: 20px;
     width: 100%;
+    height: fit-content;
 }
 
 .weather-frame .recommend-frame {
     display: flex;
     flex-direction: column;
     width: fit-content;
+    height: fit-content;
     gap: 14px;
 }
 
@@ -54,7 +56,7 @@
 
 .weather-frame .info-text {
     font-family: 'Pretendard-Regular', sans-serif;
-    font-weight: var(--font-weight-5);
+    font-weight: var(--font-weight-6);
     font-size: var(--font-size-16);
     width: fit-content;
     color: var(--black);
@@ -71,7 +73,7 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
-    gap: 10px;
+    gap: 14px;
 }
 
 .weather-frame .temp-frame {
@@ -92,7 +94,7 @@
 
 .weather-frame .info {
     font-family: 'Pretendard-Regular', sans-serif;
-    font-weight: var(--font-weight-5);
+    font-weight: var(--font-weight-6);
     font-size: var(--font-size-16);
     width: fit-content;
     color: var(--black);
@@ -170,4 +172,118 @@
     font-size: var(--font-size-16);
     width: fit-content;
     color: var(--black);
+}
+
+.weather-frame .ment-excellent {
+    color: var(--green-500, #000000);
+    font-weight: var(--font-weight-7);
+}
+
+.weather-frame .ment-good {
+    color: var(--blue-500, #000000);
+    font-weight: var(--font-weight-6);
+}
+
+.weather-frame .ment-fair {
+    color: var(--orange-500, #000000);
+    font-weight: var(--font-weight-6);
+}
+
+.weather-frame .ment-poor {
+    color: var(--red-500, #000000);
+    font-weight: var(--font-weight-6);
+}
+
+.weather-frame .ment-error {
+    color: var(--gray-500, #6b7280);
+    font-weight: var(--font-weight-5);
+}
+
+/* 🔧 상세 이유 정보 스타일 */
+.weather-frame .recommendation-reason {
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-weight: var(--font-weight-4);
+    font-size: var(--font-size-14);
+    color: var(--gray-600, #4b5563);
+    margin-top: 8px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* 🔧 로딩 표시 애니메이션 */
+.weather-frame .loading-indicator {
+    display: inline-block;
+    margin-left: 8px;
+    animation: spin 1s linear infinite;
+    color: var(--blue-500, #3b82f6);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 🔧 날씨 상태 표시 영역 */
+.weather-frame .weather-status {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    width: fit-content;
+}
+
+.weather-frame .status-indicator {
+    font-family: 'Pretendard-Regular', sans-serif;
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-12);
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.weather-frame .status-excellent {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: var(--green-700, #15803d);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.weather-frame .status-good {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--blue-700, #1d4ed8);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.weather-frame .status-fair {
+    background-color: rgba(249, 115, 22, 0.1);
+    color: var(--orange-700, #c2410c);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.weather-frame .status-poor {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--red-700, #b91c1c);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.weather-frame .recommend-frame {
+    min-height: 80px; /* 멘트 길이 변화에 대응 */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 기존 14px에서 8px로 조정 */
+}
+
+/* 🔧 반응형 대응 */
+@media (max-width: 768px) {
+    .weather-frame .ment {
+        font-size: 24px; /* 모바일에서 약간 작게 */
+    }
+    
+    .weather-frame .recommendation-reason {
+        font-size: var(--font-size-12);
+    }
+    
+    .weather-frame .weather-status {
+        margin-top: 8px;
+    }
 }
