@@ -26,10 +26,10 @@ function GoogleMap({ latitude, longitude, setLocation, className, markerColor = 
       });
 
       mapInstanceRef.current = map;
-      infoWindowRef.current = new InfoWindow();
+      infoWindowRef.current = new InfoWindow({ disableAutoPan: true });
 
       // idle 이벤트 리스너는 여기에 그대로 둡니다.
-      const idleListener = map.addListener('idle', () => {
+      const dragListener = map.addListener('dragend', () => {
         const center = map.getCenter();
         if (setLocation) {
           setLocation({ latitude: center.lat(), longitude: center.lng() });
@@ -55,7 +55,7 @@ function GoogleMap({ latitude, longitude, setLocation, className, markerColor = 
       
       // 컴포넌트 언마운트 시 리스너 정리
       return () => {
-        window.google.maps.event.removeListener(idleListener);
+        window.google.maps.event.removeListener(dragListener);
         if (mapInstanceRef.current) {
           window.google.maps.event.clearInstanceListeners(mapInstanceRef.current);
         }
