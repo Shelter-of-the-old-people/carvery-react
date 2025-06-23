@@ -14,7 +14,6 @@ import { useLocation, useParams } from 'react-router-dom';
 const mockMenus =
   [
     {title: "시설정보", targetId: "detail"},
-    {title: "관광지", targetId: "aa"},
     {title: "음식점", targetId: "bb"},
     {title: "카페", targetId: "cc"}
   ];
@@ -97,8 +96,8 @@ const Detail = () => {
         dist={formattedDist}
         info={facility.infos}
         call={facility.call}
-        time={facility.time}
-        closed={facility.close}
+        businessHours={facility.businessHours}
+        offDutyDay={facility.offDutyDay}
         lat={facility.lat}
         lon={facility.lon}
       />

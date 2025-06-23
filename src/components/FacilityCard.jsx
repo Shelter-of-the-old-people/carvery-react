@@ -9,7 +9,11 @@ const FacilityCard = ({ facility }) => {
     if (!facility) {
         return null;
     }
-  const { id, title, productImage, infos, call } = facility;
+  const { id, title, productImage, infos, businessHours, offDutyDay} = facility;
+
+  let initialBusinessHours = businessHours === "" ? '정보없음' : businessHours;
+  let initialOffDutyDay = offDutyDay === "" ? '정보없음' : offDutyDay;
+
 
   // --- ★★★ 이미지 URL 유효성 검사 로직 ★★★ ---
   // productImage가 문자열이고 'http'로 시작하는 유효한 URL인지 확인합니다.
@@ -29,7 +33,6 @@ const FacilityCard = ({ facility }) => {
         <div className="card">
             <div className="info-head">
                 <p className="name">{title}</p>
-                <div className="divier"></div>
                 <div className="location-frame">
                     <object className="location_small" type="image/svg+xml" data="../assets/location_small.svg"></object>
                     <p className="distance">{displayDist}km</p>
@@ -48,8 +51,12 @@ const FacilityCard = ({ facility }) => {
                         />
                 </div>
                 <div className="content-frame">
-                    <p className="title">전화번호</p>
-                    <p className="content">{call}</p>
+                    <p className="title">영업정보</p>
+                    <div className='row-frame'>
+                        <p className="content">{initialBusinessHours}</p>
+                        <p className="content-big">{initialOffDutyDay}</p>
+                    </div>
+                    
                 </div>
             </div>
         </div>
