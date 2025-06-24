@@ -1,105 +1,145 @@
-import { useEffect, useRef } from "react";
-import styles from '../styles/GoogleMap.module.css'; // 스타일 시트 경로
+import { useEffect, useRef, useState } from "react";
+import styles from '../styles/GoogleMap.module.css';
+import MarkerIcon from '../assets/center_marker.svg?react';
+import { fetchNearbyData } from '../api/NearbyApi';
 
-// // 1. 중앙에 표시될 마커 (아이콘) 스타일
-// const centerMarkerStyle = {
-//   position: 'absolute',
-//   top: '50%',
-//   left: '50%',
-//   // 아이콘의 중앙이 정확히 지도의 중앙에 오도록 조정합니다.
-//   transform: 'translate(-50%, -50%)',
-//   // 마커 아이콘 아래의 지도가 클릭 및 드래그될 수 있도록 합니다.
-//   pointerEvents: 'none', 
-//   fontSize: '3rem', // 아이콘 크기는 원하는 대로 조절하세요.
-// };
-
-// // 2. 지도를 담을 컨테이너 스타일
-// const mapContainerStyle = {
-//   width: '100%',
-//   height: '100%',
-// };
-
-function GoogleMap({ latitude, longitude, setLocation, className }) {
+function GoogleMap({ latitude, longitude, setLocation, className, markerColor = 'royalblue', query }) {
   const mapContainerRef = useRef(null);
   const mapInstanceRef = useRef(null);
+  const infoWindowRef = useRef(null);
+  const placeMarkersRef = useRef([]);
 
-  // 지도 초기화 로직 (최초 1회만 실행)
+  const [places, setPlaces] = useState([]);
+
+  // 1. 맵 초기화 Effect: 최초 렌더링 시 단 한 번만 실행되도록 의존성 배열을 비웁니다.
   useEffect(() => {
+    if (!latitude || !longitude || !mapContainerRef.current || !window.google) return;
+
     const initMap = async () => {
-      if (!latitude || !longitude || !mapContainerRef.current) {
-        return;
+      const { Map, InfoWindow } = await window.google.maps.importLibrary("maps");
+      const map = new Map(mapContainerRef.current, {
+        center: { lat: latitude, lng: longitude },
+        zoom: 15, // 초기 줌 레벨
+        mapId: 'YOUR_MAP_ID_OR_LEAVE_BLANK',
+        disableDefaultUI: false,
+        streetViewControl: false,
+      });
+
+      mapInstanceRef.current = map;
+      infoWindowRef.current = new InfoWindow({ disableAutoPan: true });
+
+      // idle 이벤트 리스너는 여기에 그대로 둡니다.
+      const dragListener = map.addListener('dragend', () => {
+        const center = map.getCenter();
+        if (setLocation) {
+          setLocation({ latitude: center.lat(), longitude: center.lng() });
+        }
+        if (query) {
+          fetchNearbyData(center.lat(), center.lng(), query)
+            .then(setPlaces)
+            .catch(error => {
+              console.error("Error fetching on map idle:", error);
+              setPlaces([]);
+            });
+        } else {
+          setPlaces([]);
+        }
+      });
+      
+      // 초기 로드 시 데이터 한 번 가져오기
+      if (query) {
+        fetchNearbyData(latitude, longitude, query)
+          .then(setPlaces)
+          .catch(error => console.error("Error fetching on initial load:", error));
       }
-      if (!window.google || !window.google.maps) {
-        console.error("Google Maps API가 로드되지 않았습니다.");
-        return;
-      }
-
-      try {
-        // 3. 'maps' 라이브러리만 불러옵니다 (Marker는 더 이상 필요 없음).
-        const { Map } = await window.google.maps.importLibrary("maps");
-
-        const position = { lat: latitude, lng: longitude };
-
-        const map = new Map(mapContainerRef.current, {
-          center: position,
-          zoom: 15,
-          mapId: 'YOUR_MAP_ID_OR_LEAVE_BLANK',
-          // 사용자가 지도를 직접 컨트롤 할 수 있도록 제어 옵션 활성화
-          disableDefaultUI: false,
-          streetViewControl: false,
-        });
-        mapInstanceRef.current = map;
-
-        // 4. 지도 이동이 멈췄을 때 실행되는 'idle' 이벤트 리스너 추가
-        // 'dragend' 대신 'idle'을 사용하면 줌 변경 시에도 중앙 좌표를 얻을 수 있습니다.
-        map.addListener('idle', () => {
-          const newCenter = map.getCenter();
-          if (newCenter) {
-            const lat = newCenter.lat();
-            const lng = newCenter.lng();
-            
-            console.log(`지도 중앙 좌표 변경: 위도 ${lat}, 경도 ${lng}`);
-            
-            if (setLocation) {
-              setLocation({ latitude: lat, longitude: lng });
-            }
-          }
-        });
-
-      } catch (error) {
-        console.error("Google Maps 라이브러리 로딩에 실패했습니다.", error);
-      }
+      
+      // 컴포넌트 언마운트 시 리스너 정리
+      return () => {
+        window.google.maps.event.removeListener(dragListener);
+        if (mapInstanceRef.current) {
+          window.google.maps.event.clearInstanceListeners(mapInstanceRef.current);
+        }
+      };
     };
 
     initMap();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // 의존성 배열을 비워서 최초 마운트 시에만 실행되도록 변경
 
-    // 컴포넌트 언마운트 시 리스너 정리 (메모리 누수 방지)
-    return () => {
-      if (mapInstanceRef.current) {
-        window.google.maps.event.clearInstanceListeners(mapInstanceRef.current);
-      }
-    };
-  }, []); // 최초 렌더링 시 한 번만 실행
-
-  // 부모로부터 받은 위치(props)가 변경될 때 지도 중심 업데이트
+  // 2. 부모로부터 받은 위치(props)가 변경될 때 지도 중심만 이동시키는 Effect
   useEffect(() => {
-    if (mapInstanceRef.current) {
-      const newPosition = { lat: latitude, lng: longitude };
-      
-      // 현재 지도 중심과 새로운 위치가 다를 경우에만 부드럽게 이동
-      const currentCenter = mapInstanceRef.current.getCenter();
-      if (currentCenter && (currentCenter.lat() !== latitude || currentCenter.lng() !== longitude)) {
-        mapInstanceRef.current.panTo(newPosition);
-      }
-    }
+    const map = mapInstanceRef.current;
+    if (!map || !latitude || !longitude) return;
+    
+    // 이미 생성된 맵의 중심만 이동시킵니다. 맵을 새로 만들지 않습니다.
+    map.setCenter({ lat: latitude, lng: longitude });
   }, [latitude, longitude]);
 
-  // 5. 렌더링: 지도 컨테이너와 중앙 마커 아이콘을 함께 렌더링
+
+  // 3. 검색어(query) 변경 시 데이터 다시 불러오기 Effect
+  useEffect(() => {
+    const map = mapInstanceRef.current;
+    if (!map) return;
+
+    const center = map.getCenter();
+    if (query) {
+      fetchNearbyData(center.lat(), center.lng(), query)
+        .then(setPlaces)
+        .catch(err => {
+          console.error('API 오류:', err);
+          setPlaces([]);
+        });
+    } else {
+      setPlaces([]);
+    }
+  }, [query]);
+
+  // 마커 렌더링 Effect (변경 없음)
+  useEffect(() => {
+    // ... 기존 코드와 동일
+    const map = mapInstanceRef.current;
+    const infoWindow = infoWindowRef.current;
+    if (!map || !infoWindow) return;
+
+    placeMarkersRef.current.forEach(marker => marker.setMap(null));
+    placeMarkersRef.current = [];
+
+    places.forEach(item => {
+      if (!item.lat || !item.lon) {
+        console.warn('Item is missing lat/lon:', item);
+        return;
+      }
+      const position = { lat: parseFloat(item.lat), lng: parseFloat(item.lon) };
+      const marker = new window.google.maps.Marker({
+        position: position,
+        map: map,
+        title: item.title,
+      });
+
+      marker.addListener('click', () => {
+        const contentString = `
+          <div class="${styles.infoWindow}">
+            <h3 class="${styles.infoTitle}">${item.title}</h3>
+            <p class="${styles.infoAddress}">${item.address}</p>
+            ${item.infos ? `<div class="${styles.infoTags}">${item.infos.map(info => `<span class="${styles.infoTag}">${info}</span>`).join('')}</div>` : ''}
+            ${item.call ? `<p class="${styles.infoPhone}">전화: ${item.call}</p>` : ''}
+          </div>
+        `;
+        infoWindow.setContent(contentString);
+        infoWindow.open({ anchor: marker, map });
+      });
+      placeMarkersRef.current.push(marker);
+    });
+  }, [places]);
+
   return (
+    // ... 기존 코드와 동일
     <div className={className} style={{ position: 'relative' }}>
       <div ref={mapContainerRef} className={styles.mapContainer} />
       <div className={styles.centerMarker}>
-        <img src="/assets/center_marker.svg" alt="Center Marker" className={styles.markerImage} /> {/* 원하는 아이콘(이미지, SVG 등)으로 변경 가능 */}
+        <div style={{ color: markerColor }}>
+          <MarkerIcon className={styles.markerImage} />
+        </div>
       </div>
     </div>
   );
